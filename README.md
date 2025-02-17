@@ -47,7 +47,7 @@ The issue includes the following contributions:
 - [Thomas Mann, Joseph und seine Brüder. Text und Kommentar](https://journals.openedition.org/variants/1468)  | Christian Baier
 - [Carlo Emilio Gadda, Quer pasticciaccio brutto de via Merulana](https://journals.openedition.org/variants/1479) | Manuela Bertone
 - [Walter Benjamin, Berliner Chronik / Berliner Kindheit um neunzehnhundert](https://journals.openedition.org/variants/1514)  | Jonas Rosenbrück
-- [Peter Shillingsburg, Textuality and Knowledge: Essays](https://journals.openedition.org/variants/1490) Barbara Cooke
+- [Peter Shillingsburg, Textuality and Knowledge: Essays](https://journals.openedition.org/variants/1490) | Barbara Cooke
 - [Paul Eggert, The Work and the Reader in Literary Studies: Scholarly Editing and Book History](https://journals.openedition.org/variants/1505) | Hans Walter Gabler
 
 ### Back
