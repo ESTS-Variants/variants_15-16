@@ -51,7 +51,7 @@ The issue includes the following contributions:
 - [Paul Eggert, The Work and the Reader in Literary Studies: Scholarly Editing and Book History](https://journals.openedition.org/variants/1505) | Hans Walter Gabler
 
 ### Back
-- [A Word of Thanks to Our Peer Reviewers](https://journals.openedition.org/variants/1875)| Wout Dillen and Elli Bleeker
+- [A Word of Thanks to Our Peer Reviewers](https://journals.openedition.org/variants/1875) | Wout Dillen and Elli Bleeker
 
 ## About the Author and Template
 
