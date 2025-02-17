@@ -10,7 +10,7 @@ For an authoritative version of the contents of this issue, please refer to [the
 There, the official versions of all essays, reviews, paratext, etc. in this issue are made freely available in HTML and downloadable PDF formats.
 
 **Please note that all images have been removed from the repository, for copyright reasons.** 
-
+Also, the varianTeX template has gone through various new major versions since this issue was published, in part to keep up with changes in package dependencies.
 As a result, the LaTeX project in this repository will fail to compile without producing error messages.
 The copyright of the texts included in this issue belong to the authors, and have been published under a CC-BY 4.0 Attribution license. 
 
