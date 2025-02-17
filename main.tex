@@ -1,0 +1,83 @@
+\documentclass[
+% draft %    uncomment to activate draft mode (see preamble/proofs)
+]{scrbook}   
+
+\usepackage{tikz}
+\usepackage{scalefnt}
+
+% preamble -- do not rearrange order of \includes
+\include{preamble/classoptions}
+\include{preamble/pagesize}
+\include{preamble/packages}
+\include{preamble/encoding}         
+\include{preamble/fonts}
+\include{preamble/ToC}
+\include{preamble/contributor}
+\include{preamble/copyright}
+\include{preamble/bibtex}
+\include{preamble/environments}
+\include{preamble/sectionoptions}
+\include{preamble/headerfooter}
+\include{preamble/footnoteformat}
+\include{preamble/codesnipets}
+
+% convert the document to proofs (watermark, line nrs)
+% !! UNCOMMENT WITH CAUTION !!
+% \include{preamble/proofs} 
+% see preamble/proofs.tex for more information
+
+% define issue details
+\newcommand\thejournal{Variants}
+\newcommand\thejournalsubtitle{The Journal of the European Society for Textual Scholarship}
+\newcommand\thevolume{15--16}
+\newcommand\theseason{Summer}
+\newcommand\thevolumetitle{Textual Scholarship in the Twenty-First Century}
+\newcommand\theyear{2021}
+\newcommand\theissue{\thejournal \ \thevolume \ (\theyear)} 
+\newcommand\thewebsite{https://journals.openedition.org/variants/}
+\usepackage{caption}
+\begin{document}
+\sloppy                         % preferences more space between words over overrunning margins
+\lefthyphenmin=3                % suppresses hyphenation after only 1 or 2 characters
+                                % NB: You will need to repeat \lefthyphenmin in the text if you use \selectlanguage
+\include{front/cover}
+\include{front/editorialboard}
+\include{front/titlepage}
+\include{front/colofon}
+\pagenumbering{roman}
+\tableofcontents{} 
+\include{essays/preface}
+\pagenumbering{arabic}
+
+\part{Essays}
+\include{essays/bekius}
+\include{essays/vanhulle}
+\include{essays/broude}
+\include{essays/subacius}
+\include{essays/pachoki}
+\include{essays/lappin}
+\include{essays/bland}
+\include{essays/baillot}
+
+\part{Work in Progress}
+%\setcounter{chapter}{0}  % resets chapter counter % messes up the links from TOC...
+\include{wip/maat}
+\include{wip/doran}
+\include{wip/vanhullewip}
+
+\part{Review Essays}
+%\setcounter{chapter}{0} 
+\include{reviews/rosignoli}          % review essay
+
+\part{Reviews}
+%\setcounter{chapter}{0}  % resets chapter counter % messes up the links from TOC...
+\include{reviews/baier}
+\include{reviews/bertone}
+\include{reviews/rosenbruck}
+\include{reviews/cooke}
+\include{reviews/gabler}
+
+\appendix
+\include{back/authors}
+\include{back/peerreviewers}
+\end{document}

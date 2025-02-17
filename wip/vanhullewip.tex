@@ -1,0 +1,351 @@
+\contributor{Dirk Van Hulle}
+\contribution{Dynamic Facsimiles: Note on the Transcription of Born-Digital Works for Genetic Criticism}
+\shortcontributor{Dirk Van Hulle}
+\shortcontribution{Dynamic Facsimiles}
+
+\hyphenation{Ma-thijsen}
+\hyphenation{Els-schot}
+
+\begin{paper}
+\label{vanhullewip}
+\begin{abstract}
+Born-digital works of literature sometimes present genetic critics with so much data that it becomes possible to analyse not just the microgenesis but even the nanogenesis of small textual units such as sentence versions (textual versions of one single sentence). This ‘work in progress’ essay is a suggestion to visualize these nanogenetic analyses as dynamic facsimiles, a filmic replay of logged keystrokes in parallel with a transcription, by analogy with the popular and effective format of juxtaposing digital facsimiles with their transcription in digital scholarly editions of analogue works.
+\end{abstract}
+
+\section*{} 
+In 2009, Marita Mathijsen announced the end of genetic editing: ``the
+physical circumstances in which a work comes into being nowadays have
+changed so much that one can speak of a new era of scholarly editing,
+and of a radical shift which might well herald the end of the genetic
+method of editing'' \citep[234]{mathijsen_genetic_2009}. But while Mathijsen predicted
+that genetic editing would no longer be possible in the digital age
+because of the lack of manuscripts, we are now in the situation that ---
+thanks to digital forensic tools \citep{kirschenbaum_track_2016,kirschenbaum_tracking_2013,ries_rationale_2018,lebrave_computer_2011} or keystroke logging software
+applied to born-digital works of literature --- we have so much material
+that the biggest challenge is not the gaps in the archival record but
+the abundance of data. Every single typo, every keystroke, every visit
+to a website, every move with the cursor, every pause is registered.
+This note suggests one way of visualising this material in a digital
+genetic edition.
+
+\section*{Extremely Distant and Incredibly Close}
+
+In his essay ``Conjectures on World Literature'' \citeyearpar{moretti_conjectures_2000}, reprinted in
+\emph{Distant Reading} \citeyearpar{moretti_distant_2013}, Franco Moretti introduced the notion of
+distant reading as a form of making use of secondary literature rather
+than primary literature, arguing that ``literary history will become
+very different from what it is now: it will become `second hand': a
+patchwork of other people's research, without a single direct textual
+reading. Still ambitious, and actually even more so than before
+{[}\ldots{}{]} but the ambition is now directly proportional to the
+distance from the text: the more ambitious the project, the greater must
+the distance be'' \citep[48]{moretti_distant_2013}. The ambition is expressed in terms
+of distance, and implicitly in terms of quantity: ``the trouble with
+close reading (in all of its incarnations, from the new criticism to
+deconstruction) is that it necessarily depends on an extremely small
+canon'' \citep[57]{moretti_conjectures_2000}. Moretti regards close reading as ``a
+theological exercise --- very solemn treatment of very few texts taken
+very seriously'' \citep[57]{moretti_conjectures_2000}. The focus on big data, distant reading and
+macroanalysis in Digital Humanities seems to have the immediate effect
+that close reading is forced into an antonymous position and non-digital
+literary studies suddenly look parochial in comparison. But not all
+traditional forms of literary studies are microscopic or focused on
+close reading, and vice versa, not all digital forms of literary studies
+are macroscopic or panoramic. Distant reading can also be reductive in
+some ways, as it usually limits its ``reading'' to only one version of
+texts.
+
+Moretti's ``distant reading'' is conceived as a form of ``indirect
+reading'', not unrelated to what Matthew Kirschenbaum \citeyearpar{kirschenbaum_remaking_2007} and
+\citealt{kestemont_kunnen_2019} refer to as ``not-reading'', building on a term
+coined by Martin Mueller, who emphasizes that this form of reading is
+not that new:
+
+\begin{quote}
+there are age-old techniques for doing this, some more respectable than
+others, and they include skimming or eyeballing the text, reading a
+bibliography or following what somebody else says or writes about it.
+Knowing how to ``not-read'' is just as important as knowing how to read.
+\begin{flushright}
+\citep[Mueller, qtd. in][n.p.]{kirschenbaum_remaking_2007}
+\end{flushright}
+\end{quote}
+
+\noindent These forms of ``indirect'' reading indicate that the definition of
+``distant reading'' is quite broad; it only excludes ``direct reading''. It
+would be incorrect to equate reading by means of computers with
+``indirect'' or ``distant'' reading. In the study of born-digital works of
+literature (e.g. \citealt{bekius_reconstruction_2020,kirschenbaum_track_2016,ries_rationale_2018,van_hulle_modern_2014,vauthier_genetic_2016}), digital tools not only enable distant reading but
+also a form of analysis that is actually ``closer'' than close reading. By
+means of keystroke logging software as an ``observational tool'' it
+might be possible to collect what can be called nanogenetic data about
+literary writing processes,\footnote{See also \hyperref[bekius]{Lamyk Bekius's
+  contribution to the present issue of \emph{Variants}}.} including
+\emph{currente calamo} corrections, without interfering in the writing
+process itself --- at least, that is how writing researchers use it \citep[1]{miller_keystroke_2006}. As an interdisciplinary experiment, it is
+interesting to apply this method from cognitive writing process research
+to genetic criticism, notably to the reconstruction of the writing
+sequence. After all, chronology is the backbone of the genetic edition.
+
+\section*{The Writing Sequence in Genetic Editions of Analogue Works}
+
+With analogue writing processes, experiments with ways to encode the
+writing sequence on the level of the sentence have been only partially
+successful. The main obstacle is the relatively limited amount of data
+that can be derived from the analogue writing traces. As a consequence,
+the reconstruction of the writing sequence of complex writing processes
+involves so much interpretation that if one were to ask ten editors to
+make their reconstructions, they would probably all differ from each
+other. Editorial interpretation itself is not the problem; the problem
+is that, if the sequence is encoded in the markup (e.g. XML-TEI), this
+may easily create the impression for the reader that the reconstruction
+is part of what Hans Zeller called the ``record'' (\emph{Befund}),
+rather than ``interpretation'' (\emph{Deutung}) \citep{zeller_record_1955}.
+
+An example is the digital edition of the Belgian author Willem
+Elsschot's \emph{Achter de Schermen} (\emph{Behind the Scene}), a short
+text in which Elsschot reconstructs the genesis of one of his own texts,
+the introduction to his novel \emph{Tsjip} \citep{elsschot_achter_2007}. The edition
+enables readers to study the development of the entire text, or sentence
+by sentence. On the smallest level of granularity, the numbering of the
+writing steps within a sentence was encoded as follows in the XML
+transcription: to every \verb|<del>| and \verb|<add>| tag a \verb|@layer| attribute was added
+indicating the number of the writing steps, starting from \verb|@layer="l01"|
+to the last step in the composition of a sentence. The edition offered
+an option to study the writing sequence step by step, visualising each
+step as a separate line. In the case of complex writing processes, this
+sometimes resulted in more than a dozen steps per sentence. In this
+sentence, for instance, the narrator reprimands himself concerning a
+vague phrasing, urging him to be more specific, to call a spade a spade,
+and say \emph{what} his children have done when he came in after a
+writing session. Originally, he wrote they had pretended or acted
+(``gedaan'') as if he had never been away. But this ``gedaan'' is too
+unspecific, too abstract. The narrator tries to express what this word
+actually does (or does not) accomplish, by looking for the right
+metaphor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{media/vanhullewip1.png}
+    \caption{Elsschot's draft version of the sentence ``Zeggen kerel, als je kunt'' \citep[Letterenhuis E 285 H 5372, f. 3r]{elsschot_achter_2007}.}
+    \label{fig:vanhulle:draft}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/vanhullewip2.png}
+    \caption{The writing process of Elsschot's sentence from Figure \ref{fig:vanhulle:draft}, subdivided into several writing steps.}
+    \label{fig:vanhulle:synoptic}
+\end{figure}
+
+\noindent In several writing steps, he initially compares it to a screen that he
+has used to release himself from the duty of saying what they have
+exactly done; a screen that he has put between himself and the truth; to
+make it easy for himself; to get on. Until he concludes that ``gedaan''
+is ``niets'' (nothing). And even this ``nothing'' turns out to be too
+much. He crosses it out and, after several attempts, he ironically and
+self-deprecatingly snorts: ``Say it, man, if you can.'' {[}``Zeggen kerel,
+als je kunt.''{]} (see Figure \ref{fig:vanhulle:draft}).
+
+We can ask ourselves whether it is worthwhile reconstructing the writing
+process in such detail, but it does make one realize how much debris
+comes with building a story or a novel, how many actions are involved
+that --- retrospectively --- turn out to have been seemingly
+``unnecessary'', but that were necessary nonetheless, otherwise the piece
+would never have taken shape. This is even more striking when the
+granularity of data is smaller yet, as in keystroke logging data of
+writing processes.
+
+\section*{The Writing Sequence in Genetic Editions of Born-Digital Works}
+
+In and of themselves, many of the nanogenetic variants in born-digital
+works (often typos and cursor shifts) may seem rather meaningless, but
+taken together, they can help us reconstruct not just different stages
+in a writing process, but the actual sequence of words and the order in
+which they were written, letter by letter, as a process. Evidently,
+there is an important difference between the \emph{traces} of the
+writing process (as in the case of Elsschot's \emph{Achter de Schermen})
+and the \emph{record} of writing actions (by a keystroke logger). The
+traces of born-digital writing are to a large extent recoverable as
+well, but that operation requires digital forensics. As Thorsten Ries
+notes, ``Digital forensic tools are able to recover deleted draft
+versions and stages of the writing process from restored files,
+temporary data, and system files, file structure artifacts and data
+fragments from archived and preserved storage media'' \citep[393]{ries_rationale_2018}.
+The analogue equivalent of keystroke logging software would be rather
+like a camera that records every pen stroke an author writes on a page,
+which raises the obvious question to what extent the element of ``being
+watched'' has an impact on the writing process.
+
+A good example is Craig M. Taylor's novel \emph{Staying On} (2018),
+which he wrote in collaboration with the British Library, documenting
+the entire four-year writing process with keystroke logging software.
+What is often seen as an intrusion (the installation of a form of
+spyware on the writer's computer) was approached quite differently by
+Taylor. In his case, he himself was the requesting party. As he explains
+in a 9 November 2018 British Library blog post \citep{taylor_c_2018},
+he contacted the British Library before starting his book project out of
+two concerns: the first concern was with the perceived loss of drafts in
+born-digital works and the second with ``the long-haul loneliness of
+novel writing, a process I considered in my most despairing moment as
+like wallpapering a dungeon'' \citep{taylor_c_2018}. In an unexpected way, the
+experiment was thus partly motivated by the sociology of writing.
+According to the author, ``it actually did help me begin again with
+novel writing''. He even speaks of writing in terms of collaboration:
+``Somehow the writing felt collaborative, not only because the software
+was recording me, but also because of the digital curation team who were
+taking the data'' \citep{taylor_c_2018}.
+
+Apart from the ontological difference between traces and a recording,
+the types of results are also dependent on the sophistication of
+keystroke logging software. Regarding the Spector Pro software, used for
+the project, Taylor quotes Jonathan Pledge, a curator of contemporary
+archives at the British Library, noting that Spector Pro was originally
+designed as spyware for company surveillance of employees, and as a
+result it is not very sophisticated as keylogging software \citep[cf.][]{taylor_c_2018}. But keystroke loggers such as Scriptlog, Inputlog or Translog do
+provide data that can be of interest to the study of writing processes \citep{bekius_reconstruction_2020,leijten_keystroke_2013,leijten_writing_2014,van_waes_logging_2011}. And even though this type of data is based on a
+recording rather than on the traces themselves, it can be of help in
+digital genetic criticism.\footnote{See for instance the research
+  project called \emph{Track Changes: Textual Scholarship and the
+  Challenge of Digital Literary Writing}, a collaboration between the
+  Huygens ING (Royal Netherlands Academy of Arts and Sciences,
+  Amsterdam) and the University of Antwerp (Centre for Manuscript
+  Genetics, University of Antwerp), funded by the Dutch Research Council
+  (NWO). Project members include Karina van Dalen-Oskam, Dirk Van Hulle,
+  Luuk Van Waes, Mariëlle Leijten, Vincent Neyt, Lamyk Bekius and Floor
+  Buschenhenke.}
+
+\section*{Dynamic Facsimiles}
+
+Apart from the question how to analyse the abundance of data provided by
+keystroke logging software, the question is also: how can we visualize
+it in such a way that it becomes relevant to users of critical editions?
+Compared to print editions, digital scholarly editions are still at an
+early stage of their development. But there is one feature that seems
+rather constant: the combination of (digital) facsimile with
+transcription. Combining a ``document''-oriented approach with a focus on
+``text'', this parallel presentation format appears to be an aspect of
+digital editions that works for most users and editors alike.
+
+This raises the question what the ``document'' in a digital environment
+actually is. Building on Blanchette, Drucker, Kirschenbaum and others,
+Thorsten Ries suggests that it is ``odd to still tie the term ``document''
+to the physicality of a text carrier, although obviously the term and
+concept is historically derived from physical documents and graphical
+user interfaces are still mimicking the physical document on the
+screen'' \citep[397]{ries_rationale_2018}. If we want to take this to heart, I suggest
+we also need to look for different visualizations of the ``document'' in
+scholarly editions of born-digital material, according to the motto that
+the interface is an integral part of the editorial argument \citep{andrews_what_2018,bleeker_interfacing_2018,bleier_discussing_2018,dillen_editor_2018,schauble_encodings_2018}.
+
+Whereas most digital editions nowadays show a static digital facsimile
+of a scan on one side and a static transcription next to it, the
+equivalent of a born-digital work's genesis could present readers with a
+more dynamic presentation, linked to a static transcription. In this
+way, a scholarly editor can combine stasis with movement, a transcript
+of every version and a dynamic (filmic) visualization of all the
+keystrokes constituting a sentence.
+
+
+\begin{figure}[!ht]
+    \centering
+    \frame{\includegraphics[width=.6\textwidth]{media/vanhullewip1c.png}}
+    \caption{An animated rendition of this visualization is available in the online version of this essay. Please visit: \url{https://journals.openedition.org/variants/1450}.}
+    \label{fig:vanhulle:jane1}
+\end{figure}
+
+
+
+\noindent Imagine Jane Austen writing the first sentence of \emph{Pride and
+Prejudice} on a computer, with keystroke logging software: a
+(fictitious) first draft (Figure \ref{fig:vanhulle:jane1}) and then a revision campaign
+(Figure \ref{fig:vanhulle:jane2}). The \emph{static} visualization enables macrogenetic
+analysis (examining the genesis of the work in its entirety across
+multiple versions) and microgenetic research (the processing of a
+particular source text; the revision history of one specific textual
+instance across versions; revisions within one single version) while the
+\emph{dynamic} visualization facilitates especially microgenetic and
+even nanogenetic analysis (relating to revisions on the level of the
+character, the individual keystroke or mouseclick).
+
+The author may take their time to revise the sentence in many places,
+but as long as the revisions take place within the boundaries of a
+particular sentence, this textual unit can be regarded as one ``sentence
+version'' \citep{van_hulle_logica_2019}. And whoever is interested in the internal
+changes within this sentence version can follow this process in the
+dynamic, filmic visualization. Thus, it becomes possible to work with
+``writing footage'' or a ``dynamic facsimile'' to study the writing process
+on the nanolevel. In this context, the ``sentence'' is broadly defined as
+a syntactic unit that ends with a full stop, an exclamation mark or a
+question mark. As soon as the author leaves the boundaries of the
+sentence to work on another part of the text, the sentence version is
+complete; as soon as the author returns to this sentence to revise it,
+the next sentence version begins.\footnote{In cognitive writing process
+  studies, the two types of changes (respectively shown in examples one
+  and two) are called ``pre-contextual'' revisions --- ``revisions made
+  before an externalised context is completed'' --- and ``contextual''
+  revisions --- ``revisions made within a completed externalised context'' \citep[159]{lindgren_analysing_2006}.}
+
+\begin{figure}[!ht]
+    \centering
+    \frame{\includegraphics[width=0.6\textwidth]{media/vanhullewip2c.png}}
+    \caption{An animated rendition of this visualization is available in the online version of this essay. Please visit: \url{https://journals.openedition.org/variants/1450}.}
+    \label{fig:vanhulle:jane2}
+\end{figure}
+
+The combination of scan with transcription is referred to in French
+genetic criticism as a combination of ``donner à voir'' and ``donner à
+lire'' \citep[149]{gresillon_elements_2016}: the facsimile is an image rather than a
+text, ``made for looking'', whereas the transcription is ``made for
+reading''. With keystroke logging software, we can now offer editions
+``made for watching'' --- as in ``watching a movie''. This kind of editing
+comes closer to reconstructing the actual writing sequence including the
+pauses, and therefore also allowing for the analysis of aspects such as
+``fluency'' or ``writer's block''.
+
+\noindent By analogy with the notion of a (static) digital facsimile in a parallel
+presentation of scan plus transcription in scholarly editions of
+analogue writing processes, it seems appropriate to call the writing
+footage a ``dynamic facsimile'' because it tries to ``do like'' (\emph{fac simile})
+what happens in the digital document. And since, as discussed above,
+``the term and concept {[}`document'{]} is historically derived from
+physical documents and graphical user interfaces are still mimicking the
+physical document on the screen'' \citep[397]{ries_rationale_2018}, the dynamic
+facsimile thus mimics this mimicking. This sounds fancier than it is.
+The resulting interface is easy to use and to read. After all, the
+purpose of a genetic edition is to make the writing process accessible.
+
+Obviously, the proposed interface is a form of modelling. It inevitably,
+but also purposefully, reduces the complexity of the writing process in
+order to try and understand it. One of the aspects it does not capture
+well is an author's sudden decision, for instance, to jump from the
+middle of one sentence back to the beginning of the story to change
+something in one of the first sentences. This is a challenge we are
+trying to find solutions for in the ``Track Changes'' project (see
+especially the PhD work-in-progress by Lamyk Bekius and Floor
+Buschenhenke).
+
+If we understand the scholarly edition as an embodied argument
+\emph{about} the work instead of seeing the edition only as a
+presentation or representation \emph{of} the work \citep{eggert_reader-oriented_2016}, and if
+we understand the interface as an integral part of the editor's argument \citep{andrews_what_2018,dillen_editor_2018}, I suppose my proposal to work with
+dynamic facsimiles embodies the argument that the work of literature
+cannot be reduced to just a static text. What we read at any given
+moment is only an instantiation of a dynamic process. And therefore, it
+is useful to present the instantiations or versions 1) as a dynamic
+facsimile, 2) in combination with a system that divides this dynamic
+writing process in snapshots (versions of a textual unit, in this case
+``sentence versions'') to enable users not only to zoom in on the micro-
+and nanolevel of the writing sequence, but also to zoom out and compare
+(collate) various stages of a particular textual unit on a macrolevel
+and study its development over time.
+
+\section*{Very short conclusion for aspiring editors}
+
+Do not despair; the end of genetic editing is anything but near. Do not
+presume; there is a lot of work to be done.
+
+\begin{flushleft}
+\bibliography{references/vanhullewip}
+\end{flushleft}
+\end{paper}

@@ -1,0 +1,466 @@
+\contributor{Anne Baillot and Anna Busch}
+\contribution{Editing for Man and Machine. Digital Scholarly Editions and their Users}
+\shortcontributor{Baillot and Busch}
+\shortcontribution{Editing for Man and Machine}
+
+
+\begin{paper}
+\begin{abstract}
+This article explores ways in which digital scholarly editions
+can reach new audiences by taking advantage of the
+computer-readability of their digital content. Based on the development work on the edition \emph{Briefe und Texte aus dem intellektuellen Berlin 1800--1830}, we present different Open Access-based options that allow for interlinking datasets and facilitate the development of digital editions that go beyond what print editions can achieve on paper.
+\end{abstract}
+
+\section*{}
+\textsc{Digital scholarly editions} of manuscripts oftentimes present themselves in the form of a scan of the manuscript on one side of the monitor and a transcription on the other side.\footnote{See for example: \citealt{van_gogh_vincent_2009}; \citealt{schlegel_august_2014}; \citealt{ghelardi_burckhardtsource_2019}; or \citealt{jung_digitale_2015}. For a catalog of digital scholarly editions consult \citealt{sahle_catalog_2008}
+  or \citealt{franzini_catalogue_2016}.} By presenting this view of the text, the edition caters to
+a specific way of reading. But the kind of information it conveys is
+--- in spite of its apparent similarity --- not the same as what print
+facsimile editions enable. Digital editions are compelled to establish
+the chronology of textual genesis (a linearity in the representation of
+text production made necessary by the text encoding), while a print
+facsimile edition is not necessarily bound to produce this kind of
+analysis. But although the encoding process suggests a more linear and
+in-depth approach to textual structure on this level, one can observe, on
+the other hand, a tendency not to render
+all glyphs and signs with the same precision. The reasons behind such editorial decisions are neither solely due to
+technical challenges (that would impede the digital reproduction of non-textual elements, for example)
+nor to a fundamentally lackadaisical consideration of non-textual
+elements. Instead, the editor starts from the assumption
+that the reader should be able to make the connection between the
+scan and the transcription, and cede to the fact that
+one is not identical to the other. In other words, the reader's
+understanding of the editorial setting is fundamental to the conception of all editorial
+decisions that underlie the edition's development.
+
+The potential affordances of the digital medium affect our conception of
+textual structure on different levels. This offers editors of digital scholarly
+editions the opportunity to break away from the
+page format (see also the first chapter of Grafton \citeyear{grafton_page_2012}). Still,  most editors stick to what they know, be that because of the format of the
+scans they acquired for the edition, or due to the lack of a persuasive alternative model that would be as easily
+accessible to readers (in terms of readability) as the familiar page
+is.
+
+What is more, a digital edition is not just (and perhaps not even primarily)
+designed for humans to read in a linear way, but also to be browsed through the
+interface, and navigated by means of hyperlinks. This type of interlinking is
+another level of reading for which it is difficult to anticipate  the reader's behaviour. On that level too, the editor's quest to direct the reader
+along to their own interpretation of the text can be as empowering as it
+can be restricting.
+
+Last but not least, digital scholarly editions can also address computers --- or at
+least those editions that provide access to their source code and enable
+text mining. As such, they facilitate distant reading as
+well as close reading.
+
+How can we cater to all these different readers and forms of reading?
+That is the question this article tries to answer by building on its authors' experience with
+developing a digital edition called \emph{Briefe und Texte aus dem
+intellektuellen Berlin 1800--1830} \citep{baillot_briefe_2010}. This edition
+was developed in the context of a specific funding program, which meant that the project's funding phase could not exceed five
+years' time.\footnote{The project is described on \citealt{baillot_berliner_nodate}; the scholarly contributions
+  (publications, presentations) are listed in \citealt{baillot_emmy_nodate}. The project lasted from June 2010 to
+  January 2016 and was hosted by the Institute of German Literature of
+  the Humboldt-Universität zu Berlin.} This limited time frame and funding
+resulted in a pragmatic approach to our editorial tasks, and influenced our workflow
+accordingly. Our primary goal was to aggregate resources that
+would answer a series of project-specific research questions
+\citep{baillot_berliner_2014}. But of course, if answering these questions had been our sole aim,
+there would have been no need to develop a user-friendly interface for the data, nor
+to make these resources available in the form of an Open Access publication. The edition was hence
+conceived of as both a research environment for the research group in which it was situated, and as a
+scholarly edition that offers resources to the community at
+large. This in turn required to think more about how we would define such a ``community at large'': Who are the readers of a digital scholarly edition,
+what are their expectations, and to what extent should we make an effort to meet those expectations?
+
+\section{A short tour through the digital edition \emph{Briefe und
+  Texte aus dem intellektuellen Berlin 1800--1830}}
+
+The research group ``Berlin Intellektuelle 1800\emph{\textbf{--}}1830''
+at the department of Modern German Literature at the Humboldt-University
+of Berlin was dedicated to the analysis of intellectual relationships in
+Berlin around 1800. At that time, the Prussian capital was an eminent
+place of cultural transfer and knowledge exchange. Form and meaning of
+the participation of writers, publishers and scholars in public life
+defined the main research axis. To this end, the communication strategies these agents
+developed, as well as the close connections they established between circles (such as between
+universities, academies, literary clubs and salons) were analysed
+on the basis of unpublished or only partially published manuscripts.
+
+While letters constituted the main part of the edition's corpus, 
+other sorts of texts such as draft manuscripts of literary texts or
+lecture notes are presented as well --- this with the goal of cross-referencing
+the treatment of particular topics in different genres. The importance
+of letters in general as both a source of information and as a textual format with
+an inherent literary nature that adopts complex functions was one of the project's
+starting points. That is why the edition was called
+\emph{Briefe und Texte aus dem intellektuellen Berlin 1800--1830}.
+
+For the project, the research group designed four key questions to analyse the conditions
+and developments that were crucial for intellectual communication in Berlin
+between 1800 and 1830 as they were presented in these handwritten documents: 1) To what extent did
+the establishment of the Berlin University in 1810 contribute to the
+intellectual self-conception of scholars and academics who worked as
+lecturers?; 2) To what extent did the presence of the French in Berlin
+shape and define the political awareness of intellectuals?; 3) Which
+communication strategies did male and female writers use to establish
+themselves in the literary milieu?; and 4) How can we extract political statements from a
+literary or scholarly corpus?\footnote{The complete list of research
+  results (publications, papers, etc.) of the research group ``Berlin
+  Intellektuelle 1800--1830'' can be found on \citealt{baillot_emmy_nodate}}
+
+A few months into the project, the research team decided to deviate from its initial plan to publish of a series of smaller print editions, and to 
+development an overarching digital scholarly
+edition instead. To this end, the team reviewed several digital scholarly
+editions of letters that could serve as examples to follow. Great
+inspiration was drawn  from ``Vincent van Gogh. The
+Letters'' \citep{van_gogh_vincent_2009} and ``Carl Maria von Weber --- Collected Works
+(WeGA)'' \citep{von_weber_carl-maria-von-weber-gesamtausgabe_2017}. In many ways, these editions helped the research group develop and implement their editorial practices. In addition to the best practices that were adopted by these digital editions, the editorial team
+implemented the standards recommended by the German Research Foundation
+(DFG), the project's funding agency for scholarly, web-based text
+publications \citep{dfg_informationen_2015}.
+
+Not focusing on a single author, as most editions
+(even digital ones) do, the edition provides several possibilities
+to approach the manuscripts. This variety of options allows the user to access
+the edition in different ways, of which the one via the author-guided approach is just one alongside many. As such, the edited letters and
+texts can be accessed via their genre (letter, drama, novella,
+reports, lecture notes, etc.) or through a series of topics that are structured according
+to the team's four core research questions.\footnote{The
+  complete editorial guidelines including all specifications for the
+  different types of text genres can be found in German in \citealt{baillot_berliner_2010}.}
+
+The standard view in the editorial interface shows a diplomatic transcription opposite a scan of
+the manuscript. These two columns on the screen can be
+reduced to a single one in just a click. For each column, it is possible to
+visualize the scan, two versions of the document's transcription (either as a diplomatic transcription of the document, or as an edited reading version of the
+text), the source code, the metadata, or the identified
+entities. It is also possible to generate a PDF of each document.
+
+The diplomatic version provides a transcription of the manuscript's text with as little editorial interference as possible. All
+corrections, deletions and additions that are found in the manuscript are
+reproduced. Characteristics such as line breaks, the horizontal alignment of
+paragraphs, or abbreviations are all retained, and missing parts of the
+text are not reconstructed. Therefore, the diplomatic transcription is
+suited for textual analysis, interpretation, and investigating the text's genesis.\footnote{Due to the time and funding
+  constraints, the TEI encoding that was used in the project does not follow Critical Apparatus model \citep{consortium_critical_2020} --- not even in the case of genetic phenomena. Instead, a project-specific encoding
+  was developed that combines a light encoding of genetic phenomena in
+  combination with named entities. A project-specific (not completely
+  TEI-compatible) \lstinline[language=XML]!<hand>! element  that refers to person
+  entities allowed the team to connect both encoding levels (genetic and
+  entity-based). The complete project-specific TEI encoding guidelines in English
+  can be found in \citealt{baillot_edition-specific_2016}.}
+
+In contrast to the diplomatic transcription, the reading text focuses on readability. While it still provides a reliable textual basis like the diplomatic transcription does, this version aims
+to present an easy-to-read view of the transcription that offers a quick
+point of reference. This is especially helpful when the document in question contains a lot of
+deletions and additions. In this view, the focus lies solely on the ``basic
+text'' in the author's hand --- all other hands that might intervene in the
+manuscript (such as those of editors, recipients, or archivists) are omitted.
+Corrections, deletions and additions are tacitly integrated into the text,
+original line breaks are ignored, and abbreviations are written in full.
+Parts of the text that are missing but that the team was able to reconstruct with a high
+certainty are supplied in brackets. The text is also supplied with annotations,
+so as to address different editorial formats: on the one hand, these annotations
+reflect on the subtleties of the manuscript and the text; on the other, it offers details concerning the document's wider (and especially
+historical) context.
+
+All six of these HTML views (and their downloadable PDF equivalents) are generated from the same TEI-XML file.
+Each TEI file contains the transcription of a single letter or
+manuscript, its markup and annotations, and its metadata. Additional
+information on various entities (persons, groups, places, and publications)
+are brought together in one TEI file per entity type, and connected to
+the text files via project-specific identification numbers. These TEI
+files are the basis for the metadata view, the listing of
+entities, and the indexation of entries. Each of these aspects are represented in the encoding
+of these elements.
+
+All the different formats the project offers to visualize each text are also available to the reader for download and reuse
+under a CC-BY license. In addition, the reader has access to all of the project's
+relevant metadata, and to the indexed entries: this includes information on senders and
+addressees (in the case of letters); the manuscript's origin, provenance, and current holding
+repository; the editors that were involved, etc.
+
+Overall, this edition is not radically different from the major current
+digital scholarly editions. What may set it apart, though, is that it is not
+focused on a specific author or genre, but rather on a historical context. Its
+ qualities lie mostly in the presentation of manuscripts that are chosen because they are
+relevant to specific research questions, and in the combination of a
+series of features (be they structural, or on the level of the interface)
+that address these questions. Developed with four target audiences in mind
+(i.e. the research group itself; a broader scholarly audience; the community at
+large; and algorithms designed to harvest open data), the edition shows the potential
+digital scholarly editions have for opening up their data --- as well as what some of the limitations of such openness can be. Is it even possible to develop
+an edition that would be as usable by a knowledgeable scholar as it would be by
+a computer?
+
+\section{Editing for man or for machine?}
+
+In general, scholarly (print) editions are developed by scholars, for
+scholars. This is especially true in the German context in which the
+\emph{Briefe und Texte} edition was developed. Both the format and the price of such editions
+make it almost impossible to reach a wider audience. Knowing that one's
+edition will be primarily (and most of the time, \emph{exclusively}) used by
+scholars who consult them in libraries, editors tend to design their
+editorial practices according to their own needs and habits.
+
+Digital scholarly editions, on the other hand, are quite different from most print
+editions in terms of their accessibility. While some editions are
+password-protected or hidden behind a paywall, many of them are
+available in Libre Open Access \citep{suber_open_2012}. This means that virtually everyone is able to
+access and use the digital scholarly edition. It does not mean that these editions will automatically have a
+significantly wider audience, nor that they were even
+developed with such a wider audience in mind. It \emph{does}, however, change the premise of these editions,
+in the sense that they may afford editors with the possibility and legitimation to address such a wider audience. But
+does the simple fact that the editions are available actually make them
+``accessible'' to that wider audience?
+
+It is in fact more difficult to define the expectations of a
+non-scholarly audience than those of a scholarly audience. Trying to
+reach a wider audience is a business for which scholars are not properly
+trained. And what is more: this type of work is often unproductive in
+terms of career benefits --- at least in the German academic context. On the
+contrary, a higher complexity is usually worth more in terms of academic
+reputation and capital than a greater accessibility of the
+research results would be. Hence, the aspiration to address a reader other   than
+the editor's peers remains mostly unsupported by the academic system in
+terms of career evaluation, funding, and training.
+
+Our decision to offer the user a reading version that is not presented as hierarchically
+inferior to any of the the other versions represented a major shift for the research team. What especially
+mattered during the development of this
+digital edition was that we would make all six visualizations
+equally easy to reach as the digital image of the manuscript. This included our decision not to transcribe the text at the sign level (e.g. by leaving some
+glyphs unrepresented), but instead to give readers the freedom
+to establish the connection between the digital image and the
+transcription by themselves (as mentioned in the introduction above). The
+hermeneutical relevance of this decision is obvious when one realizes
+its implications. It means that each reader can bring their own
+reading habits to the table. In spite of these varying preconditions, each reader
+should still able to make sense of the edition by themselves. This
+freedom is based on the assumption that the reader activates their own education and a
+critical thinking in the Kantian sense. In addition,  this decision also has more political implications,
+since the documents that are displayed in the archives are not
+considered any less important or relevant than the transcriptions 
+the editors (who are scholars) are presenting to the reader. This act of putting
+archival resources and scholarly interpretations on the same level is in
+itself already a statement. Finally, these decisions turned out to also have a direct influence on
+our choice of corpora, since not all archives would allow us to publish
+high quality digital images of their manuscripts in Libre Open Access.
+
+These hermeneutical and, in a wider sense, political choices allowed us to present our edition as a tool that aims to
+enable readings of all sorts; to provide a structured space that empowers readers by giving them access to the text, and information to structure themselves. Of
+course, the reader is still directed, even in this setup --- indeed, it would be delusional to think that it is possible to set up a ``neutral'' edition that allows for all possible readings. However, \emph{Briefe und Texte} tries to offer its
+readers all the critical tools and elements they need to embark on an autonomous reading.
+The attempt to offer such an ``enabling'' edition (meaning: an edition that \emph{enables} the reader
+to act as the designer of their own readings) is not new, but it does
+require us to take into account some specific aspects with regard to digital
+scholarly editions.
+
+As editors we anticipate reading scenarios and use them as the basis
+for developing the edition's design, drawing mental maps of pathways that can lead the reader to the
+text. Here, those might include option such as: searching for a specific author, integrating data for a metadata aggregator,
+presenting connections as a network of persons,\footnote{This has become the trademark of
+the Schlegel edition in the German-speaking area since \emph{Briefe und
+Texte} was developped.} etc. In the case of this edition, however, funding and time constraints
+limited our implementation of such reading paths. Taking the conditions in which the edition was
+produced into account, the result is overall satisfactory. But the edition is still not fully
+satisfactory when it comes to reader-friendliness. Our commitment to accommodate monitors of different sizes and resolutions, 
+for instance, required us to fix some
+elements (especially frames) in  a way that 
+ lacks fluidity. This means that some frame elements appear too dominant on the
+vast majority of monitors. This problem could not be overcome in this
+funding period. 
+
+The most straight-forward approach that a reader can take to discovering the contents of the
+edition, namely by finding the homepage and navigating down the tree structure of data
+from there, is a key area where editors can work on building a rapport with their
+readers. How do you grab and retain the reader's interest to do so? 
+In general, editors are still in dire need of a set of standards that would
+give the kind of direction the scholarly book tradition would provide them with.
+To start, there are still no established (meaning: widely recognized and actually
+used) names for the different types of digital scholarly editions that
+exist, and that could contextualize the edition when the reader reaches its
+homepage. Most editions usually give themselves a name
+from the point of view of their subject, rather than from that of their
+method. From the onset, this forms an impediment to establishing a clear reading path for the reader.
+
+But even if editors assumed correctly what the reader's first reaction to the homepage of their edition would be,
+it remains impossible for them to anticipate exactly how the reader will move on from there in all possible circumstances. 
+It was only after a few years of development and daily
+usage that the editorial team of \emph{Briefe und Texte} realized how
+unsuitable the edition's design (with its columns and additional
+information) is for actually \emph{reading} the text. It is
+uncomfortable to read text in HTML, and even more uncomfortable when
+additional information pops up around it. The idea to offer a PDF version
+alongside the six different HTML displays and the query interface
+emerged from the diagnosis that the online edition in itself was not an adequate document for
+extensive reading. After making this realization, the team made sure that the reader could download a PDF version for each individual
+document, or for a whole corpus. As such, the edition's new PDF generator became a useful way for making the edition more readable.
+
+More could yet be learned about our audience's reading habits
+through an analysis of the edition's log-files (as organized
+by Anna-Maria Sichani \citeyear{sichani_beyond_2016}). Such an analysis can be undertaken to find
+out how people understand and interact with Open Access policies by investigating, for example, how
+many users actually use the ``Download XML'' option that \emph{Briefe und
+Texte} offers, or how many XML files are downloaded per user
+during a certain time frame. This research was inspired by Peter Boot's
+seminal study of the log-files of the Van Gogh edition \citep{boot_reading_2011}. His
+study mostly confirms well-known reading attitudes: namely that simple queries are used
+much more often than advanced queries; that links play a major role in the
+way the reader accesses information; etc. It was not easy, however, to extrapolate useful information
+from Boot's analysis of the Van Gogh Letters, and translate it into the context of our \emph{Briefe und Texte} edition. 
+In his study, Peter Boot demonstrated for example that the first and last letters that are presented on
+a web page are those that are consulted the most. Another major anchor point for the users in the case of the Van Gogh edition is to look for
+famous paintings. Based on these results, however the question remains how the findings can be used in an edition that does not revolve
+around a single author, or a single  corpus --- but that instead decidedly aims to deconstruct
+canonical approaches to the history of literature? The results of this
+analysis were certainly still useful, if only because of what it
+taught us about the possible expectations of the readers in general, and to answer questions such as: To what
+extent does the structural design of \emph{Briefe und Texte} differ from that of
+other editions? Are there constants in the way readers approach editions, or does their approach
+strongly depend on the way the edition is designed, or even on
+the edited object? Is it possible to distinguish different reader types or reading
+patterns from one another, and if so, what can they tell us about the interest readers are giving
+to specific editions, or to editions in general? Although these questions may seem to deal solely with implementation issues, they are in fact representative of
+a major question regarding the relationship between the edited text and its
+reader, namely: Which role does the editor of a digital scholarly edition play
+in guiding the reader's interaction with the text? And how do we balance text with design?
+
+At this point, it is important to reflect on the conceptualization of the
+relationship that is to be analysed here. ``Reading'' covers only part
+of the way text is accessed by the audience of a digital edition. In
+this case, the term ``using'' is in many ways more adequate to the
+multiplicity of approaches made possible by the digital media. Firstly, it
+can allow us to distinguish between linear reading (reading) and non-linear
+reading (navigating, for instance scrolling, as a relevant form of use).
+Secondly, it allows us to take design elements into account without necessarily
+contrasting them to textual elements. The following section will deploy
+a series of additional arguments for this approach to a (positive)
+understanding of the ``use'' of a digital scholarly edition.
+
+\section{Accessing the edition from outside the edition}
+
+In a digital scholarly edition such as \emph{Briefe und Texte}, the reader's access to the
+text is enabled through different entry points (such as genres, authors, etc.),
+but also by the reader's queries (and their corresponding interfaces), and by the hyperlinks it establishes, both within the
+edition and outside of it. Each of these ways to access the text
+questions the concept of the ``reader''. Specifically in the case of correspondence editions,
+dedicated digital tools have also been developed to facilitate these
+different types of access to their text, and to offer readers a new level of
+user-friendliness.
+
+The accessibility of the edition's data within \emph{Briefe und Texte} ---
+and the way it enables its \emph{use} or \emph{re-use} in terms of interoperability --- is ensured by the
+implementation of authority files and standards such as: the Integrated Authority
+File (GND) for persons \citep{deutsche_national_bibliothek_integrated_2016}; GeoHack for
+places \citep{mediawiki_geohack_2020}; XML and TEI for text encoding \citep{consortium_tei_2020}; ISO standards \citep{iso_standards_nodate};
+and by making the edition's source code available in Open
+Access.\footnote{The edition is licenced under a CC-BY 3.0 license for the editorial work. Each
+  of the Cultural Heritage Institution that allowed us to reproduce scans
+  of manuscripts specified their re-use conditions, which are mentioned
+  below the relevant image.} In addition, it was also crucial to connect the edition with other
+repositories and editions, which we achieved in a first stage by
+implementing a GND BEACON \citep{wikipedia_wikipediabeacon_2020}. With this simple file format hosted by Wikipedia, it
+is possible to link content to one another based on their GND numbers. 
+In the case of \emph{Briefe und Texte}, we used this system to connect with historical
+agents. When a person appears in \emph{Letters and Texts} (be it in
+edited texts, annotation, or metadata) that any other BEACON-using project records as well, 
+the system will automatically provide a direct link to the
+respective page of this resource. In addition, the other way around,
+other resources using this technology will automatically be linked to our \emph{Briefe und
+Texte} edition. The German National Library and many regional libraries,
+archives, biographical and bibliographical projects, and many others use
+the BEACON format. This makes it an easy way to connect the
+contents of digital resources with a wide range of scholarly web
+services.
+
+Another way to access the information in \emph{Briefe und
+Texte}, is at the document level. On this level, all the documents that are edited in \emph{Briefe und
+Texte} are also listed in the national German
+database and national information system for collections of personal
+papers and handwritten manuscripts from German archives and
+institutions. This database is named \emph{Kalliope} (\url{http://kalliope-verbund.info/de/index.html}), and points each of these documents
+to the corresponding permanent URL in \emph{Briefe und Texte}. This allows a user
+to browse through the repository of their favourite small archive
+looking for a specific letter, and from there to be guided to its facsimile,
+transcription, and annotation in \emph{Letters and Texts} directly from the
+aggregated metadata in \emph{Kalliope}. In addition, the
+editorial metadata in \emph{Briefe und Texte} also includes links to
+\emph{Kalliope} in the other direction, thereby guaranteeing reciprocity in
+the way the information is connected. Here, the efforts of cultural heritage institutions 
+to catalogue and index data are joined with those of the scholarly editing and research communities, 
+in an attempt to venture beyond the archival connection between image and metadata, and instead to include 
+also edited transcriptions that are accessible straight from the archival catalogue through hyperlinks.
+
+Finally, more advanced forms of access have been developed specifically for
+letters and correspondence since the start of our work on the \emph{Briefe und Texte}
+edition. Letters offer particularly interesting opportunities for
+interconnecting textual data via the digital medium. One of the developers
+of \emph{Briefe und Texte}, Sabine Seifert, is an active member of the
+TEI Special Interest Group Correspondence (SIG Correspondence). This
+group worked especially on correspondence-specific metadata within the
+TEI's \lstinline[language=XML]!<teiHeader>! element working to generate more
+interoperable data, and to open TEI-encoded correspondences up to new,
+automated uses.\footnote{For the proposal on GitHub, see \citealt{tei_correspondence_sig_correspdesc_2019}; 
+in the TEI guidelines, see \citealt{consortium_tei_nodate}. See also Stadler et al. \citeyear{stadler_towards_2016}.}
+
+With regard to encoding correspondence metadata, the SIG Correspondence proposed a
+new element called \lstinline[language=XML]!<correspDesc>! (correspondence
+description) that contains core correspondence-specific information
+that is mentioned on letters or any other piece of correspondence. A more restricted form of the
+\lstinline[language=XML]!<correspDesc>! element called the Correspondence Metadata Interchange (CMI) format was then developed to serve 
+as the basis for even more standardized metadata exchange. To maximize its interoperability, CMI relies on authority files and standard formats so that it can still meet
+with the naturally diverse encoding methods of various letter-based editions and
+projects. The web service \emph{CorrespSearch} 
+harvests metadata of letters that are 
+based on the CMI format and makes the correspondence-specific metadata
+of different German-language correspondence editions searchable with a single
+query (\citealt{dumont_correspsearch_2020}; see also \citealt{dumont_correspsearch_2018}). For an edition like \emph{Briefe und Texte}, using the CMI framework and
+being integrated to the \emph{CorrespSearch} platform provided us with
+an additional entry point at the document and author levels for each
+letter that is external to the edition itself. This represents one more way to
+attend and address different methods the user may employ to access the text and its context (metadata,
+annotation). In addition, it also offers the edition a way of making its contents available to
+computers, as the edition's standardized metadata become machine-readable. This is especially relevant in the
+case where integrating the \emph{GND Beacon}, \emph{Kalliope}, and
+\emph{CorrespSearch} serves as a connection between different digital resources. It is
+easier to implement such connections on the level of metadata, as it is easier to standardize
+this type of data than it is to standardize text annotation. In return, these
+metadata then offer the user access to
+much deeper information in the form of the fully edited and annotated
+digital edition.
+
+To conclude, we found that the best way to address the plurality of users is to break the edition down into different
+levels of granularity and units of text conceived as data and
+metadata, so as to present the user with a door into the editorial design of each of
+these levels that users with different interests are likely to open --- be they archivists, scholars, avid letter readers, or even computers.
+The primary architecture designed for the
+\emph{Briefe und Texte} edition answers a specific set of research questions. But it also
+leaves room --- even taking its limited funding and time into account --- for offering
+additional forms of access to users. So while there is one primary way
+of reading the text, the edition offers many alternative ways for the user to access it. As such, the  \emph{Briefe und Texte} edition offers
+an experimental step in the process of opening up our editions in a way that helps us to
+conceive of digital scholarly editions that move beyond the boundaries what print editions have to offer.
+
+Anticipating multiple usability scenarios and
+implementing them in a digital edition offers us multiple ways to access the text.
+Of course, not even the edition presented here could perfectly anticipate
+all user requests, but at least it may provide users with the necessary information to
+access the information they need by themselves. As such, the
+edition gives users something that a print version cannot, namely
+a user-generated and user-specific presentation of its materials. The
+resilience of an edition will always depend on how comprehensible its research results are --- mainly in terms of the quality of its scans and the transparency of the editorial decisions that were made, but also by providing detailed links embedding the edition in a relatable scientific context.
+In a digital edition, any editorial uncertainties in the wording and syntactic or genetic classification of the
+edited material are immediately apparent. While this enables the user to make their own independent
+decisions while reading the edition, it also transfers a certain level of philological
+responsibility to the user. This democratization of the edition, facilitated by the digital medium, frees the edition from the
+ivory tower of philology, where it was allowed to blossom into its most
+specialized form for so long. Now, it is up to our users to exploit the new
+possibilities these digital scholarly editions have to offer.
+
+\begin{flushleft}
+\bibliography{references/baillot}  
+\end{flushleft}
+%\newpage
+\end{paper}

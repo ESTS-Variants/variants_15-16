@@ -1,0 +1,1887 @@
+ibid
+\contributor{Lamyk Bekius}
+\contribution{The Reconstruction of the Author’s Movement Through the Text, or How to Encode Keystroke Logged Writing Processes in TEI-XML}
+\shortcontributor{Lamyk Bekius}
+\shortcontribution{The Author’s Movement through the Text}
+
+\hyphenation{ana-lyse}
+
+
+\begin{paper}
+\label{bekius}
+\begin{abstract}
+This essay demonstrates how the use of the keystroke
+logging tool Inputlog allows for a fine-grained analysis of literary
+writing processes. But before the writing process can be studied, the
+keystroke logging data needs to be transformed into an output that is suitable
+for a textual genetic analysis. For this purpose, this essay
+investigates the potential of combining text with keystroke
+logging data in TEI-conformant XML. Besides discussing how revisions can
+be specified in the encoding, the author asks herself how traces of \emph{digital}
+writing processes differ from \emph{analogue} traces (and, taking it one step further, how
+keystroke logging can be used to record more details about the genesis
+of a text), what kind of decisions need to be made when encoding
+keystroke logging data, and how the peculiarities of digital authorship leave
+their mark on its encoding --- as well as on the interpretation and argumentation
+that underlies the transcription. This will demonstrate that the level of
+detail that is recorded in keystroke logging data requires us to consider the way in which
+the text was typed when we design our encoding schemas. The goal of the TEI-XML encoding of
+the keystroke logging data is to provide transcriptions of writing
+processes that could be used to analyse (the sequence of) revisions
+and text production in each logged writing session in relation to their specific location in
+the text.
+\end{abstract}
+
+\section{Introduction}
+\textsc{This essay illustrates} how TEI-XML encoding of keystroke logging data can be used to arrive at a detailed examination of
+the genesis of present-day literary works that are recorded with a keystroke
+logger, using the writing processes of the Flemish novelist
+Gie Bogaert (1958) as a case study. Bogaert divides his writing process into two stages.
+The first part --- the ``creative process'' as Bogaert calls it --- consists
+of making notes in a paper notebook. Here, he comes up with the concept and structure of the novel, writes character descriptions, and collects
+additional material. The writing of this notebook must be completed
+before he can start the second part of the writing process: the
+``linguistic creative process''.\footnote{This is how Bogaert, in
+  conversation, described his own working method. For a video for the
+  Belgian publishing house Standaard Uitgeverij in which Bogaert
+  describes his creative writing method, see \citealt{bogaert_gie_2013}.}
+This part consists of the actual writing of the novel, for which he uses a word processor. As such, Bogaert works both in a ``traditional'' analogue writing
+environment, and in a digital one. This way, his working method aptly
+illustrates the challenges textual scholars and genetic critics face
+in the (early) twenty-first century. For decades now, geneticists and
+editors have had methods and tools at hand to study the traces of the
+writing process in the paper notebook: different colours of ink,
+interlinear additions, and crossed out words provide valuable clues to gain an insight into the text's
+genesis. But how do we analyse the genesis of a text that was written in
+a word processor?
+
+Like Bogaert, most present-day authors predominantly work in a digital
+environment \citep{kirschenbaum_tracking_2013,van_hulle_modern_2014,buschenhenke_het_2016,kirschenbaum_track_2016,vauthier_genetic_2016,ries_rationale_2018}. Common word
+processors tend to hide the author's writing operations, which makes a detailed
+reconstruction of the writing process that includes immediate
+revisions a difficult endeavour \citep{mathijsen_genetic_2009}. Without a doubt, as Matthew Kirschenbaum and Doug Reside argue in their essay on ``Tracking the Changes'', the analysis of these
+``new textual forms require new work habits, new training, new tools,
+new practices, and new instincts'' \citep[272]{kirschenbaum_tracking_2013}.
+The consequences of the digital work process for genetic criticism are
+addressed in the interdisciplinary project \emph{Track Changes: Textual
+Scholarship and the Challenge of Digital Literary Writing} that combines
+aspects of cognitive writing process research with textual
+scholarship.\footnote{This work has been conducted as part of my PhD
+  research within the project \emph{Track Changes: Textual Scholarship
+  and the Challenge of Digital Literary Writing} (2018-2023), a
+  collaboration between Huygens ING (Royal Netherlands Academy of Arts
+  and Sciences, Amsterdam) and the University of Antwerp (Antwerp Centre
+  for Digital Humanities and Literary Criticism) funded by the Dutch
+  Research Council (NWO). Project members include Prof. Karina van
+  Dalen-Oskam, Prof. Dirk Van Hulle, Prof. Luuk Van Waes, Dr Mariëlle
+  Leijten, Vincent Neyt and Floor Buschenhenke.}
+
+Within cognitive writing process research, tools have been developed to
+analyse non-literary writing processes, amongst them what is called
+\emph{keystroke logging}: ``as an observational tool, keystroke logging
+offers the opportunity to capture details of the activity of writing,
+not only for the purpose of the linguistic, textual and cognitive study
+of writing, but also for broader applications concerning the development
+of language learning, literacy and language pedagogy'' \citep[1]{miller_keystroke_2006}. With the aim of broadening research coverage from
+short professional writing processes in educational and corporate
+contexts to include long-term literary writing processes, the team
+behind the keystroke logging tool Inputlog \citep{leijten_keystroke_2013}
+at the University of Antwerp collaborated with Bogaert to log the
+writing process of his tenth novel, \emph{Roosevelt} (\citeyear{bogaert_roosevelt_2016}). After
+Bogaert's writing process had been recorded, collaboration was
+established between the Inputlog team, the Literary Department at
+Huygens ING (Amsterdam), and the Centre for Manuscript Genetics
+(University of Antwerp) in order to adequately address the analysis of
+this literary writing process. This resulted in the interdisciplinary
+project \emph{Track Changes}, in which Bogaert's writing process is
+examined from the perspective of cognitive writing process research, as well as from
+the perspective of genetic criticism. In turn, the collaboration with Bogaert
+illustrates the possibilities of keystroke logging for genetic criticism
+in future collaborative projects, or when writers choose to log their
+writing processes themselves as part of their personal
+archive.\footnote{Part of the \emph{Track Changes} project is the
+  development of a new keystroke logger based on Inputlog, which improves the usability and the convenience for the authors so that it can be used for their own archival practices.}
+
+The Inputlog team invited Bogaert to record his writing process with
+Inputlog. For the purpose of this essay, it is important to keep in mind
+that this implies that Bogaert's writing process contained a
+researcher intervention. Throughout the writing process itself, however,
+this intervention was kept to a minimum: since Inputlog is designed to
+be as non-intrusive as possible, the further course of the writing
+process was not influenced \citep{leijten_keystroke_2013}. Whilst other
+keystroke logging tools (e.g. Scriptlog, see \citealt{wengelin_combined_2009}) were
+designed for experimental word-processing environments --- and so cannot
+be used to study writing in a more naturalistic setting --- Inputlog logs
+the data of writing processes that take place in a word processing
+environment that the author is already familiar with: Microsoft Word \citep{leijten_keystroke_2013}.\footnote{For an overview of logging tools,
+  see \citealt{van_waes_logging_2011} and \citealt{lindgren_researching_2019}.} Each
+time an author activates Inputlog to start a new writing session, the
+Word document in which the author is working is saved in the background,
+in a folder that contains the session's date and number. Subsequently,
+the Word document is saved again when the author ends the writing
+session by de-activating Inputlog. This results in a session-version of
+the text for each session, which shows the text's gradual expansion. But
+Inputlog does not just save Word documents. When the program is running,
+every keystroke and mouse movement is recorded with a timestamp \citep{leijten_keystroke_2013}. While writing, authors retain control of the
+process: they can start and stop the logging when they choose, and the
+data is stored on their local PC or laptop.
+
+Although Inputlog is developed for textual and cognitive study of
+writing, the data output from the writing process of Bogaert's
+\emph{Roosevelt}, generated in Inputlog, is not immediately suitable for
+literary textual research. While Inputlog provides a video replay of the
+recorded writing session, some issues emerge when replaying Bogaert's
+writing process. Short writing sessions comprising linear text
+production are replayed accurately, but as soon as larger segments of text
+are relocated or deleted, when the writing is characterized with
+non-linearity, or when the logged session is of considerable length, the
+replay mode is affected and represents the revisions and text production
+at the wrong location in the text. Moreover, relying solely on a video
+replay of the writing session for text genetic analysis also seems
+undesirable, as one would need to watch a writing session of, say, two
+hours in its entirety, while constantly pausing to analyse the effect of
+the revisions. A static reconstruction of the writing session --- whether
+or not in combination with a video replay, as in Dirk Van Hulle's
+proposal for a ``Dynamic Facsimile'' \hyperref[vanhullewip]{in the present issue} \citep{van_hulle_dynamic_2021} --- is favoured to
+ensure adequate analysis. Hence, in order to be able to study the
+revisions (contained in the keystroke logging data) in their textual
+context, the twofold output of Inputlog --- the Word document and the
+keystroke logging data --- requires some reassembly.\footnote{Within
+  cognitive writing process research, a method has been developed to
+  study revisions in context: the S-notation \citep{kollberg_s-notation_1998}. This
+  represents the changes in the text at their location and provides
+  information about the range, order and structure of the revisions \citep[91]{kollberg_studying_2002}. This computer-based
+  notation can be generated using the keystroke logging data from
+  Inputlog and is provided within the ``analyse'' feature of the software.
+  However, the S-notation was initially developed to visualize revisions
+  of short writing processes in experimental settings. As such, it appeared to be unsuitable for the study of longitudinal literary writing processes
+  logged in their natural setting. Literary writing processes may take
+  up several years and hundreds of writing sessions, with the production
+  of an extensive number of words. As a result, the S-notation could not
+  be generated using the keystroke data gathered from Bogaert's writing
+  process. More generally, the S-notation does not allow for further
+  annotation and processing. Another problem concerns the representation
+  of deleted text. Since Inputlog logs the position of the event
+  according to its position on the x- and y-axes of the MS Word
+  document, the deleted text is not always presented correctly (the only
+  information the keyboard provides about a deletion is usages of the
+  delete or backspace key). This hinders an automatically generated
+  visualization of the revisions in their textual context.}
+
+Since TEI-conformant XML is widely used to create a digital form of
+humanities data --- texts, manuscripts, archival documents and so on --- I
+opted to encode the keystroke logging data in TEI-XML to visualize and
+analyse revisions in their textual context \citep{burnard_what_2014}. For me, these transcriptions function as a tool to gain more insight into the textual genesis. They could eventually be used for visualizations of the writing process, but a proper discussion of the latter lies outside the scope of this article. In order to
+reflect on how keystroke logging data can be encoded in TEI-conformant
+XML, this essay discusses a) the way in which the traces of
+\emph{digital} writing processes differ from traces of \emph{analogue} writing processes
+(and how keystroke logging can be used to record more details about the
+genesis of a text); b) which decisions we need to consider when we encode keystroke logging data; c) the way in which the peculiarities of
+digital writing leave their mark on the encoding; and d) the
+interpretation and argumentation underlying the transcription. The goal
+of the TEI-XML encoding of the keystroke logging data is to provide
+transcriptions of the writing processes that could be used to analyse
+(the sequence of) the revisions and text production in each logged
+writing session in their location in the text.
+
+\section{Born-digital literature and genetic criticism}
+
+The digital environment in which present-day literature is composed
+significantly changes the materiality of the sources available for
+textual scholarship and genetic criticism. Miriam O'Kane Mara argues
+that ``with digital manuscripts, scholars must investigate the methods
+that authors use as they save their work as well as the software and
+hardware systems through which they compose'' \citep[345]{mara_nuala_2013}. Several explorations of the digital literary writing process have already been
+published since then that explore digital files, file formats, and media types.
+
+In \emph{Track Changes. A Literary History of Text Processing} (\citeyear{kirschenbaum_track_2016}), for example,
+Matthew Kirschenbaum describes the emergence of the word processor and
+its adoption among Anglo-American authors. And in ``The rationale of the born-digital dossier génétique'', Thorsten Ries analysed
+born-digital records from the hard drives of the German poet Thomas
+Kling (\citealt{ries_rationale_2018}; see also \citealt{,ries_philology_2017}). Ries argues that the digital forensic record of
+the writing process comprises ``digital documents'', but also metadata,
+automatically saved draft snapshots, recoverable temporary files and
+other fragmented traces scattered across the hard drive \citep[417]{ries_rationale_2018}. The use of applications such as a hex editor, a binary parser, an
+undelete tool, or a file carver can reveal revision and intermediate
+steps in the writing process \citep[418]{ries_rationale_2018}. For example, the so-called
+``scratch file'' [\textasciitilde{}WRS0003.tmp] with the first
+paragraph of the first chapter of Kling's essay \emph{Herodot} (2005)
+``contains an almost complete protocol of the first writing phase of
+this paragraph in the form of text additions and textual variants from
+the first written line on to a point of time between
+[\textasciitilde{}WRL3681.tmp] and
+[\textasciitilde{}WRA1775.wbk]'' --- two other temporal and backup
+files \citep[141]{ries_philology_2017}. After extracting the fragments, Ries could
+reconstruct the nonlinear development process of this paragraph, with
+inclusion of editing phases and correction of typing errors
+\citep[142]{ries_philology_2017}. Still, as Ries mentions, ``although the relative,
+layered sequence of edits can be determined [\ldots{}] due to
+textual fragmentation, it is not in all cases possible to determine a
+consistent text status at any given time with certainty'' \citep[142]{ries_philology_2017}. Bénédicte Vauthier took on the task of investigating the digital
+files the Spanish writer Robert Juan-Cantavella saved during the writing
+of his novel \emph{El Dorado} (2008). After comparing digital documents
+and analysing the tree structure of the folders and other metadata such
+as the file title and creation date, she concluded that, ``although the
+dossier does not contain the normal traces of writing --- cancellations,
+additions, shifts --- whose absence [\ldots{}] would appear to make
+our analysis practically impossible, collating and comparing the digital
+documents and files gives us more than a sound basis to allow a
+meaningful genetic investigation'' \citep[175]{vauthier_genetic_2016}. Although the
+research above has proven that the digital writing process can leave
+sufficient traces to ensure genetic analysis, immediate revision and
+correction of typing errors remain often --- apart from some exceptions
+--- irretrievable.
+
+Most genetic studies of born-digital writing processes work with self-archived born-digital materials
+received directly from the authors in question (see, for example, \citealt{vauthier_genetic_2016,crombez_postdramatic_2017,vasari_securing_2019}). This already indicates how important it is to collaborate with authors for this kind of research. Collaboration between writers, scholars and
+archivists has already been advocated by Catherine Hobbs with regard to
+born-digital archives, ``to understand the relationship between writers,
+their documentation and their creative vision'' (Hobbs, qtd. in
+\citealt[384]{gooding_forensic_2019}). To be able to study the genesis of a
+born-digital work of literature in more detail, the collaboration with
+authors may be extended, for example, by logging their writing process
+with a keystroke logger. Between 2014 and 2018, the English novelist C.
+M. Taylor collaborated with the British Library to record the writing
+process of his novel \emph{Staying On} (2018) using the keystroke
+logging software Spector Pro. Taylor, driven by both the ``lost drafts'' in
+digital writing and the loneliness of the writing process, contacted the
+digital curation team of the British Library, and decided together
+to record the writing process \citep[n.p.]{taylor_c_2018}. As for copyright, they agreed that the recorded data would belong
+to the British Library, while that of the resulting book would belong to Taylor. On the ``English and Drama blog'' of the British Library, Taylor
+quoted Jonathan Pledge (curator of contemporary archives at the
+British Library) who stated that the used software ``seem[ed] to have
+been specifically designed for low-level company surveillance of
+employees, potentially without their knowledge'' \citep[n.p.]{taylor_c_2018}.
+This use case scenario becomes apparent in the material that was
+recorded: the document with the text was not automatically saved after
+each writing session, although the software did save a screenshot
+``captured every few seconds each time activity on the host computer is
+detected'', and Taylor saved some intermediate versions himself
+\citep[n.p.]{taylor_c_2018}. Also, the software did not record the location of
+the keystroke within the document itself, nor the time of each
+individual keystroke. This suggests that while the recorded material
+undeniably contains valuable information about Taylor's writing process,
+the software that was used seems to make it even more difficult to
+pursue a detailed reconstruction of the revisions in their textual
+context than is the case with Inputlog.
+
+Although keystroke loggers originated as spyware, both Inputlog and Scriptlog (another
+keystroke logging program) have been
+developed specifically to observe writing processes for research
+purposes \citep{wengelin_combined_2009}. The keystroke logging files logged with Scriptlog can be read
+and processed within the Inputlog
+environment \citep{van_hoorenbeeck_generic_2015}.\footnote{The same applies to
+  eye and handwriting observation software EyeWrite, EyePen and HandSpy
+  \citep{van_hoorenbeeck_generic_2015}.} As a result, the proposed encoding
+below could also be applied to writing processes logged with Scriptlog.
+In addition, if it is possible to represent the revisions made by Taylor
+--- as well as revisions logged with other keystroke loggers --- in their
+textual context, the revision types given below may also be
+distinguished in this material.
+  
+\section{Keystroke logging data and its use for genetic
+criticism}
+
+So what does Inputlog's recorded keystroke logging material consist of?
+Bogaert wrote \emph{Roosevelt} in 266 days --- from July 2013 to December 2015 --- during which 447 writing sessions took place, each logged with Inputlog. Of these sessions, 422 were dedicated to the writing of the novel. Luuk Van Waes assisted Bogaert in installing Inputlog, and was available for questions or when problems occurred. The 422 writing sessions resulted in 453 session-versions\footnote{In some sessions the initial document did not
+  correspond with the end document from the previous session, so there
+  are more session-versions than sessions.} showing the gradual expansion of the text, and 277 hours, 14 minutes and 22 seconds of keystroke logging data.\footnote{For an example of how the successive events in these sessions were logged, see Table \ref{tab:bekius:general} in the Appendix below, which shows a detail from
+the General Analysis generated by Inputlog. The General Analysis of each writing session represents every event that was recorded during that  session.}
+
+Let us zoom in on the the composition of a single sentence written by Bogaert in session thirty: 
+
+\begin{quote}
+Soms kan hij meer
+krijgen dan wat hij voor zo'n kunstwerkje vraagt, maar dat wil hij
+nooit. 
+
+[Sometimes he can get more than he asks for such a work of
+art, but he never wants that.]\footnote{All the translations of
+  Bogaert's sentences are my own. I have tried to stay as close as
+  possible to the original Dutch sentences in my translation.}
+\end{quote} 
+
+\noindent
+All the writing actions
+performed in composing this sentence are listed in Table \ref{tab:bekius:soms}. Since all
+the different steps Bogaert took to arrive at this sentence are recorded in Inputlog's General Analysis logs, keystroke logging facilitates an
+analysis of the text with a granularity that cannot be obtained when working with analogue materials.
+
+In the typology of writing processes of literary works, genetic criticism distinguishes
+between exogenetic, endogenetic, and epigenetic writing processes --- all of which
+can be studied from a microgenetic point of view, and from a microgenetic one \citep{biasi_what_1996,van_hulle_modelling_2016}. ``Microgenesis'' here includes all
+intra-textual processes: ``the processing of a particular exogenetic
+source text; the revision history of one specific textual instance
+across endogenetic and/or epigenetic versions; the `réécritures' or
+revisions within one single version''\citep[50]{van_hulle_modelling_2016}. The
+``macrogenesis'' on the other hand, embodies ``the genesis of the work in
+its entirety across multiple versions'' \citep[50]{van_hulle_modelling_2016}. When
+ examining keystroke logging data, the geneticist can examine the writing process at an unprecedented level of granularity.
+The fine-grained data of keystroke logging therefore allows for a new
+type of what can be called ``nanogenetic'' research.\footnote{See also
+  Dirk Van Hulle's contribution on ``Dynamic Facsimiles'' in the present
+  issue of \emph{Variants}.} 
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\begin{table}[!ht]
+\centering\footnotesize\renewcommand{\arraystretch}{1.5}
+\caption[Writing actions in the composition of the sentence ``Soms kan
+hij meer krijgen dan wat hij voor zo'n kunstwerkje vraagt, maar dat wil
+hij nooit.']{Writing actions in the composition of the sentence ``Soms kan
+hij meer krijgen dan wat hij voor zo'n kunstwerkje vraagt, maar dat wil
+hij nooit.''\footnotemark[1]}
+\begin{tabular}{p{.475\textwidth}p{.475\textwidth}}
+\toprule
+\textit{Writing action} & \textit{Text}\tabularnewline
+\midrule
+adds: \verb|Soms beiden| & \emph{\textbf{Soms beiden}}\tabularnewline
+adds: \verb|krijgt h| & Soms \emph{\textbf{krijgt
+h}}beiden\tabularnewline
+adds \verb|kan hij meer| & Soms \emph{\textbf{kan hij meer}} krijgt
+hbeiden\tabularnewline
+adds: \verb|en dan wat hij voor zon'| \newline \verb|kunstwerkje vraagt| & Soms kan hij
+meer \emph{\textbf{krijgen dan wat hij voor zon' kunstwerkje vraagt}}t
+hbeiden\tabularnewline
+deletes: \verb|n| & Soms kan hij meer krijgen dan wat hij voor zo'
+kunstwerkje vraagtt hbeiden\tabularnewline
+adds: \verb|n| & Soms kan hij meer krijgen dan wat hij voor
+zo'\emph{\textbf{n}} kunstwerkje vraagtt hbeiden\tabularnewline
+deletes: \verb|t hbeiden|& Soms kan hij meer krijgen dan wat hij voor
+zo'n kunstwerkje vraagt\tabularnewline
+adds: \verb|, maar dat il hij niet| & Soms kan hij meer krijgen dan wat
+hij voor zo'n kunstwerkje vraagt\emph{\textbf{, maar dat il hij
+niet}}\tabularnewline
+adds: \verb|w| & Soms kan hij meer krijgen dan wat hij voor zo'n
+kunstwerkje vraagt, maar dat \emph{\textbf{w}}il hij niet\tabularnewline
+adds: \verb|.| & Soms kan hij meer krijgen dan wat hij voor zo'n
+kunstwerkje vraagt, maar dat wil hij
+niet\emph{\textbf{.}}\tabularnewline
+adds: \verb|ooit| & Soms kan hij meer krijgen dan wat hij voor zo'n
+kunstwerkje vraagt, maar dat wil hij
+n\emph{\textbf{ooit}}iet.\tabularnewline
+deletes: \verb|iet| & Soms kan hij meer krijgen dan wat hij voor zo'n
+kunstwerkje vraagt, maar dat wil hij nooit.\tabularnewline
+\bottomrule
+\end{tabular}
+\label{tab:bekius:soms}
+\end{table}
+
+Central to a work's nanogenesis would be the author's movement through
+the text, as the writing process is taking place. Thanks to keystroke
+logging software, this highly detailed form of sequentiality can be
+deduced from logged events that allow us to reconstruct the order in
+which the text was typed --- for example, whether the author left a
+sentence while composing it --- and the way in which words were deleted.
+This level of detail of movement through a text cannot be deduced from
+an analogue document in which ``the documentary evidence is often so
+complex that it becomes impossible to determine the order in which these
+revisions were made with any degree of certainty'' \citep[90]{dillen_digital_2015}. \footnotetext[1]{These writing actions are deduced from Inputlog's General Analysis logs. A copy of the original logs can be found in Appendix \ref{app:bekius:generalanalysis} below.}\renewcommand*{\thefootnote}{\arabic{footnote}}The fact that the analysis of keystroke logging data here allows us to succeed
+exactly where traces of analogue writing processes crucially fall short warrants the coinage of a new concept such as that of nanogenesis.
+In addition, it is important to realize that a work's microgenesis and nanogenesis can be studied separately: one could,
+for example, study the variation of one specific paragraph without
+taking the fine-grained details about the exact order of the keystrokes
+into account, or, conversely, solely focus on the author's movement
+through the text.
+
+In the case of digital documents, Mara claims that
+``different types of software mould and shape the writing process,
+making software a collaborator of sorts'' \citep[344]{mara_nuala_2013}. Although
+primarily relying on how the Irish writer Nuala O'Faolain describes
+writing in a word processor in her memoirs, Mara indicates changes in
+the author's writing process as they move to the digital environment,
+``a process that differs from traditional drafting and revision''
+\citep[345]{mara_nuala_2013}. For O'Faolain, ``the digital environment provides a
+sense of freedom and lack of fear because so-called mistakes can be
+easily rectified and revision can be immediate'' \citep[346]{mara_nuala_2013}. Writing on a laptop computer provided O'Faolain with a freedom and
+fluidity that ``indicates \emph{for her} a willingness to play with
+words and structures that other media might not promote''
+\citep[344; emphasis in original]{mara_nuala_2013}. It is exactly this new
+mode of writing that is recorded with keystroke logging, and could be
+described by means of nanogenetic research.
+
+The disadvantage of keystroke logging data such as those recorded by Inputlog, however,
+is that the processes are recorded in such detail that the logs become almost incomprehensible 
+to the untrained eye. To make these logs more accessible to researchers, they need to be
+presented in a way that captures only the relevant information, and conveys the researcher's 
+interpretation of the data in a format that is easy to read and preferably familiar to their peers.
+This is exactly the strength of the Text Encoding Initiative (TEI), whose guidelines recommend the use of XML tags
+to both transcribe the text as it is recorded on the document, and to encode the researcher's interpretation of that record 
+in a human and computer readable format. 
+
+Within the vast realm of possibilities that the TEI allows for, we will do well to check out the work done by its
+Work Group on Genetic Editions (part of the TEI's Special Interest Group for Manuscripts) that
+produced the ``Encoding Model for Genetic Editions'' \citeyearpar{workgroup_on_genetic_editions_encoding_2010}
+to facilitate the encoding of genetic phenomena. The Workgroup focuses on two main requirements: ``the ability to
+encode features of the document rather than those of the text, and the
+ability to encode time, sequentiality and writing stages in the
+transcription'' \citep[81]{dillen_digital_2015}. These two requirements make for a
+perfect starting point for a discussion of the differences between
+analogue and digital textual genetic material.
+
+First of all, in case of digital writing, the spatial organization of the document no longer contains the majority of the information
+about the genesis of the text --- given that an analogue document is a
+solid (static, physical) information carrier while the digital document
+is ephemeral (dynamic, virtual). In analogue documents ``the dialectic
+between a document's physical limitations (as a two-dimensional surface
+of limited size) and the internal structure of its different writing
+zones on that surface often contains important clues in the
+investigation of the text's writing process'' \citep[71]{dillen_digital_2015}. For
+example, the position of the two text zones in the top margin of the
+notebook page in Figure \ref{fig:bekius:notebook} (within the black squares) and the cramped
+position of the word ``heeft'' might indicate that the text in the
+right-hand zone was written before the text in the left-hand one. The
+dynamic visualization environment of a word processor, on the other
+hand, discards this type of information, since it allows text to be inserted at
+any given position. In case of keystroke logging, the information about
+the text's writing process is saved in a separate file outside of the
+main document.
+
+Secondly, the keystroke logging data offers detailed information about
+the time and sequentiality of all the activities during writing. The
+genetic scholar can only hypothesize about the sequence in which the two
+zones in the top margin of the notebook page were written, and can in no
+way be entirely certain about the sequence of their writing in relation
+to the rest of the text. When the writing process is logged, the
+sequence of the writing of the text can be deduced from the keystroke
+logging data --- effectively eliminating the need for this type of
+guesswork.
+
+
+\section{What does the document reveal?}
+
+Since the ``Documentary Turn'' in the late twentieth century, the document
+has gained a special position in textual criticism --- especially within
+the genetic orientation \citep[81]{dillen_digital_2015}. For our understanding of the
+text, and to understand its genesis, the documentary context is regarded
+as a crucial source of information \citep{pierazzo_putting_2011,dillen_digital_2015}. But for born-digital materials, the spatial organization of the
+document becomes less substantial in the analysis of the text's genesis,
+since digital documents are essentially distinct from analogue ones. As
+Mats Dahlström has noted, digital documents cannot be defined
+materially. In digital documents, works are constituted ``by the pattern
+of signals and tensions at the binary level of the material carrier''  
+\citep[n.p.]{dahlstrom_drowning_2000}. Indeed, the graphical user interface
+(GUI), like the print layout in MS Word, only creates the illusion of
+the materiality of digital documents \citep[468]{van_hulle_logica_2019}. Yet, at the
+same time, as Kirschenbaum notes, ``a digital environment is an abstract
+projection supported and sustained by its capacity to propagate the
+illusion [\ldots{}] of immaterial behavior: identification without
+ambiguity, transmission without loss, repetition without originality'' \citep[11]{kirschenbaum_mechanisms_2008}. Indeed, as Katherine Hayles argued in ``Translating Media: Why We Should Rethink Textuality'', digital documents are always bound to a
+material carrier, in which ``data files, programs that call and process
+the files, hardware functionalities that interpret or compile the
+programs, and so on'' are required to produce the digital document \citep[274]{hayles_translating_2003}. Still, as Ries reminds us, we have to keep in mind that these digital documents ``are not
+bound to a single physical entity, not even to a single processing
+system context or display application'' \citep[397]{ries_rationale_2018}. The everyday
+use of the term ``document'' also seems to complicate its use in textual
+scholarship: we ``speak of the `same' digital document when we save `it'
+after changing its content, after copying `it' to a pendrive and `open
+it' on a different computer with a different word processor which might
+display the content in a different way'' \citep[397]{ries_rationale_2018}. In my
+comparison with the analogue document, I therefore use the term
+``document'' to refer to \emph{each} Word file in the material recorded
+with Inputlog: each writing session creates two documents (Word files
+with .docx extension) and one XML file with the keystroke information
+(.idfx extension).\footnote{How to preserve those files is yet another
+  question (see, for example, \citealt{kirschenbaum_digital_2010}).}
+Each Word file represents a different stage of the text
+(session-version) and can be collated as such to gain a first impression
+of the development of the text during each session.
+
+At the document level, there are two main differences between analogue
+source materials and born-digital source materials logged with a
+keystroke logger: 1) keystroke logging abolishes the distinction between
+interdocumentary and intradocumentary variation; and 2) the document
+layout no longer contains the primary information about the genesis of
+the text.
+
+\subsection{Interdocumentary versus intradocumentary variation}
+
+The first difference arises at the level of intradocumentary and
+interdocumentary variation. In writing on paper, the document pages bear
+witness of textual genesis through \emph{intra}documentary variation \citep[165]{schauble_encodings_2018}. Besides this stratification visible on
+the page, a large part of the textual development also happens \emph{off
+the page}, for example in the rewriting of a text \citep[165]{schauble_encodings_2018}.
+This kind of \emph{inter}documentary variation can only be made apparent
+by means of collation. To account for these differences, Schäuble and
+Gabler proposed a distinction between textual \emph{layers} and
+\emph{levels}. Textual layers represent the intradocumentary variation
+(i.e. the revisions made to a single document) while textual levels
+describe the interdocumentary variation (i.e. the differences between two
+documents) \citep[169]{schauble_encodings_2018}.
+
+Encoding interdocumentary changes causes a number of interpretative
+problems for the editor. When there is no materialization of the change,
+rules need to be developed for the encoding of the revision \citep[171]{schauble_encodings_2018}. To illustrate this need, Schäuble and Gabler
+discuss how Virginia Woolf changed the phrase ```my mothers
+[\emph{sic}] name' (Woolf MS.A.5.b, n3)'' to ```my mothers
+[\emph{sic}] laughing nickname' (Woolf TS.A.5.a, 54)'' during her
+transcription of her manuscript into a typescript \citep[171]{schauble_encodings_2018}.
+This change could be encoded in several ways: 
+
+\begin{quote}
+It could be encoded as a
+single substitution of the word ``name'' with ``laughing nickname'' or as an
+addition of the word ``laughing'' followed by a substitution of ``name''
+with ``nickname''. If we tokenise on a finer level of granularity than the
+word, it could even be encoded as a single addition of the string
+``laughing nick'' that builds a new compound with the following invariant
+string ``name''.
+\begin{flushright}
+\citep[171]{schauble_encodings_2018}
+\end{flushright} 
+\end{quote}
+
+\noindent Each of these solutions provides a
+correct representation of the typescript, but for the editor it is
+difficult to decide which encoding models the writing act best \citep[171]{schauble_encodings_2018}.
+
+
+For digital writing processes that are tracked with
+keystroke logging software, the encoding of the writing act would be
+less ambiguous, since interdocumentary variation is always preceded by
+intradocumentary variation --- which (in most cases) will be recorded
+through keystroke logging, and saved in a separate file.\footnote{The
+  exceptions to this are the writing sessions in which Bogaert inserted
+  fragments of texts, which he had written in Evernote at times when he
+  did not have his laptop at his disposal. Of these fragments, the
+  keystrokes were not recorded.} When using Inputlog, for example, the author can continue to write in a single
+document for the duration of their entire writing process, while
+intermediate versions are simultaneously saved as separate documents in the background.
+If these are logged consistently and without errors, the keystroke
+logging data encompasses all intradocumentary variation, which in turn
+provides the information about the interdocumentary variation; in this
+case, the difference between the Word documents saved at the beginning
+and the end of a writing session can be visualized by means of
+collation. An example from Bogaert's writing process may help to clarify
+how this would work.
+
+A collation of the Word documents that were saved at the start and the
+end of the seventeenth writing session points at an interdocumentary
+variant. Here, Bogaert changed the sentence ``Mijn oude huis?'' [\emph{My
+old house?}] into ``Mijn oude huid?'' [\emph{My old skin?}]. Following the
+reasoning used by Gabler and Schäuble, this could be encoded as a
+substitution of ``huis'' with ``huid'' or, at an even finer level, as a
+substitution of ``s'' with ``d'' --- both options would be feasible. Since
+this substitution was logged with Inputlog, the question of how to
+change occurred is no longer an object of speculation. The keystroke
+logging data details the sequence of how the revision was carried out:
+Bogaert first pressed the key ``d'' and then used the delete key to
+remove the ``s'' (see Table \ref{tab:bekius:replacement1}).
+
+\newpage
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{table}[H]
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+\caption[The replacement of ``s'' by ``d'' in the
+keystroke data.]{The replacement of ``s'' by ``d'' in the
+keystroke data.\footnotemark[2]}
+\label{tab:bekius:replacement1}
+\begin{tabular}{p{.01\textwidth}p{.12\textwidth}|p{.1\textwidth}|p{.025\textwidth}p{.025\textwidth}p{.025\textwidth}p{.035\textwidth}p{.11\textwidth}p{.03\textwidth}p{.12\textwidth}}
+\toprule
+\textit{\#id} & \textit{Event Type} & \textit{Output} & \textit{Pos.} & \textit{Doc. Len}. & \textit{CP} & \textit{Start Time} & \textit{Start Clock} & \textit{End Time }& \textit{End Clock}\tabularnewline
+\midrule
+21	& \verb|keyboard|	& LEFT	& 1838	& 4501	& 4501	& 42308	& 00:00:42.308	& 42355	& 00:00:42.355\tabularnewline
+
+22	& \verb|keyboard|	& d	& 1838	& 4501	& 4501	& 43228	& 00:00:43.228	& 43306	& 00:00:43.306\tabularnewline
+
+23	& \verb|keyboard|	& DELETE	& 2285	& 4501	& 4502	& 43369	& 00:00:43.369	& 43431	& 00:00:43.431\tabularnewline
+
+24	& \verb|replacement|	& [1839:1840]	& 2285	& 4501	& 4502	& 43369	& 00:00:43.369	& 43431	& 00:00:43.431\tabularnewline
+
+26	& \verb|mouse|	& Movement	& 2285	& 4501	& 4502	& 45397	& 00:00:45.397	& 46083	& 00:00:46.083\tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\begin{table}[H]
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+\caption[General Analysis of typing ``Of is het m'' and deleting ``M''.]{General Analysis of typing ``Of is het m'' and deleting ``M''.\footnotemark[2]}
+\label{tab:bekius:replacement2}
+\begin{tabular}{p{.01\textwidth}p{.12\textwidth}|p{.1\textwidth}|p{.025\textwidth}p{.025\textwidth}p{.025\textwidth}p{.035\textwidth}p{.11\textwidth}p{.03\textwidth}p{.12\textwidth}}
+\toprule
+\textit{\#id} & \textit{Event Type} & \textit{Output} & \textit{Pos.} & \textit{Doc. Len}. & \textit{CP} & \textit{Start Time} & \textit{Start Clock} & \textit{End Time }& \textit{End Clock}\tabularnewline
+\midrule
+
+2460 & \verb|keyboard| & O & 1862 & 4573 & 4774 & 1077967 & 00:17:57.967 & 1078014 & 00:17:58.014\tabularnewline
+2461 & \verb|keyboard| & f & 1863 & 4574 & 4775 & 1078295 & 00:17:58.295 & 1078342 & 00:17:58.342\tabularnewline
+2462 & \verb|keyboard| & SPACE & 1864 & 4575 & 4776 & 1078498 & 00:17:58.498 & 1078560 & 00:17:58.560\tabularnewline
+2463 & \verb|keyboard| & i & 1865 & 4576 & 4777 & 1078747 & 00:17:58.747 & 1078778 & 00:17:58.778\tabularnewline
+2464 & \verb|keyboard| & s & 1866 & 4577 & 4778 & 1078825 & 00:17:58.825 & 1078903 & 00:17:58.903\tabularnewline
+2465 & \verb|keyboard| & SPACE & 1867 & 4578 & 4779 & 1078966 & 00:17:58.966 & 1079028 & 00:17:59.028\tabularnewline
+2466 & \verb|keyboard| & h & 1868 & 4579 & 4780 & 1079184 & 00:17:59.184 & 1079231 & 00:17:59.231\tabularnewline
+2467 & \verb|keyboard| & e & 1869 & 4580 & 4781 & 1079324 & 00:17:59.324 & 1079387 & 00:17:59.387\tabularnewline
+2468 & \verb|keyboard| & t & 1870 & 4581 & 4782 & 1079418 & 00:17:59.418 & 1079465 & 00:17:59.465\tabularnewline
+2469 & \verb|keyboard| & SPACE & 1871 & 4582 & 4783 & 1079730 & 00:17:59.730 & 1079777 & 00:17:59.777\tabularnewline
+2470 & \verb|keyboard| & m & 1872 & 4583 & 4784 & 1080666 & 00:18:00.666 & 1080728 & 00:18:00.728\tabularnewline
+2471 & \verb|keyboard| & DELETE & 1911 & 4583 & 4785 & 1081243 & 00:18:01.243 & 1081321 & 00:18:01.321\tabularnewline
+2472 & \verb|replacement| & [1873:1874] & 1911 & 4583 & 4785 & 1081243 & 00:18:01.243 & 1081321 & 00:18:01.321\tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+\footnotetext[2]{Unfortunately, Inputlog occasionally gives the wrong position in \emph{Pos.}, as is the case with the deletions in Table \ref{tab:bekius:replacement1} and Table \ref{tab:bekius:replacement2}. The correct positions are given in \emph{Output}, respectively {[}1839:1840{]} and {[}1873:1874{]} (as opposed to the position given in \emph{Pos.}, respectively 2285 and 1911). For a more detailed explanation of what type of data is logged in which of Inputlog's ``General Output'' columns, see Appendix \ref{app:bekius:generalanalysis} below.}
+
+\begin{table}[H]
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+\caption[General Analysis of typing ``M'' and deleting ``Of is het m''.]{General Analysis of typing ``M'' and deleting ``Of is het m''.\footnotemark[3]}
+\label{tab:bekius:replacement3}
+\begin{tabular}{p{.01\textwidth}p{.12\textwidth}|p{.1\textwidth}|p{.025\textwidth}p{.025\textwidth}p{.025\textwidth}p{.035\textwidth}p{.11\textwidth}p{.03\textwidth}p{.12\textwidth}}
+\toprule
+\textit{\#id} & \textit{Event Type} & \textit{Output} & \textit{Pos.} & \textit{Doc. Len}. & \textit{CP} & \textit{Start Time} & \textit{Start Clock} & \textit{End Time }& \textit{End Clock}\tabularnewline
+\midrule
+
+8828 & \verb|keyboard| & M & 1834 & 4513 & 5517 & 2647478 & 00:44:07.478 & 2647524 & 00:44:07.524\tabularnewline
+8829 & \verb|keyboard| & DELETE & 1835 & 4513 & 5518 & 2648336 & 00:44:08.336 & 2648336 & 00:44:08.336\tabularnewline
+8830 & \verb|replacement| & [1835:1836] & 1835 & 4513 & 5518 & 2648336 & 00:44:08.336 & 2648336 & 00:44:08.336\tabularnewline
+8832 & \verb|keyboard| & DELETE & 1835 & 4512 & 5518 & 2648835 & 00:44:08.835 & 2648835 & 00:44:08.835\tabularnewline
+8833 & \verb|replacement| & [1835:1836] & 1835 & 4512 & 5518 & 2648835 & 00:44:08.835 & 2648835 & 00:44:08.835\tabularnewline
+8835 & \verb|keyboard| & DELETE & 1835 & 4511 & 5518 & 2648866 & 00:44:08.866 & 2648866 & 00:44:08.866\tabularnewline
+8836 & \verb|replacement| & [1835:1836] & 1835 & 4511 & 5518 & 2648866 & 00:44:08.866 & 2648866 & 00:44:08.866\tabularnewline
+8838 & \verb|keyboard| & DELETE & 1835 & 4510 & 5518 & 2648913 & 00:44:08.913 & 2648913 & 00:44:08.913\tabularnewline
+8839 & \verb|replacement| & [1835:1836] & 1835 & 4510 & 5518 & 2648913 & 00:44:08.913 & 2648913 & 00:44:08.913\tabularnewline
+8841 & \verb|keyboard| & DELETE & 1835 & 4509 & 5518 & 2648944 & 00:44:08.944 & 2648944 & 00:44:08.944\tabularnewline
+8842 & \verb|replacement| & [1835:1836] & 1835 & 4509 & 5518 & 2648944 & 00:44:08.944 & 2648944 & 00:44:08.944\tabularnewline
+8844 & \verb|keyboard| & DELETE & 1835 & 4508 & 5518 & 2648975 & 00:44:08.975 & 2648975 & 00:44:08.975\tabularnewline
+8845 & \verb|replacement| & [1835:1836] & 1835 & 4508 & 5518 & 2648975 & 00:44:08.975 & 2648975 & 00:44:08.975\tabularnewline
+8847 & \verb|keyboard| & DELETE & 1835 & 4507 & 5518 & 2649006 & 00:44:09.006 & 2649006 & 00:44:09.006\tabularnewline
+8848 & \verb|replacement| & [1835:1836] & 1835 & 4507 & 5518 & 2649006 & 00:44:09.006 & 2649006 & 00:44:09.006\tabularnewline
+8850 & \verb|keyboard| & DELETE & 1835 & 4506 & 5518 & 2649053 & 00:44:09.053 & 2649053 & 00:44:09.053\tabularnewline
+8851 & \verb|replacement| & [1835:1836] & 1835 & 4506 & 5518 & 2649053 & 00:44:09.053 & 2649053 & 00:44:09.053\tabularnewline
+8853 & \verb|keyboard| & DELETE & 1835 & 4505 & 5518 & 2649084 & 00:44:09.084 & 2649084 & 00:44:09.084\tabularnewline
+8854 & \verb|replacement| & [1835:1836] & 1835 & 4505 & 5518 & 2649084 & 00:44:09.084 & 2649084 & 00:44:09.084\tabularnewline
+8856 & \verb|keyboard| & DELETE & 1835 & 4504 & 5518 & 2649116 & 00:44:09.116 & 2649131 & 00:44:09.131\tabularnewline
+8857 & \verb|replacement| & [1835:1836] & 1835 & 4504 & 5518 & 2649116 & 00:44:09.116 & 2649131 & 00:44:09.131\tabularnewline
+8859 & \verb|keyboard| & DELETE & 1835 & 4503 & 5518 & 2649553 & 00:44:09.553 & 2649615 & 00:44:09.615\tabularnewline
+8860 & \verb|replacement| & [1835:1836] & 1835 & 4503 & 5518 & 2649553 & 00:44:09.553 & 2649615 & 00:44:09.615\tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand*{\thefootnote}{\arabic{footnote}} 
+
+\noindent The keystroke data appears to contain even more information about the
+composition process of this sentence, in that it reveals another
+modification as well. Somewhat later in the writing process, Bogaert
+adds the clause ``Of is het m'' to the beginning of the sentence and
+deletes the capital letter ``M'' (See Table \ref{tab:bekius:replacement2}). The sentence now reads: ``Of
+is het mijn oude huid?'' [\emph{Or is it my old skin?}]. But after a while,
+Bogaert returns to this sentence and changes it back to its previous
+variant by first adding ``M'' and then deleting ``Of is het m'' (see Table \ref{tab:bekius:replacement3}).\footnote{Note that Inputlog's ``General Analysis'' only shows
+  keystrokes and mouse movements. This explains why the deleted text is
+  not visible in the log of Table \ref{tab:bekius:replacement3}, but only Bogaert's pressing of the
+  delete key. Still, the ``General Analysis'' \emph{does} provide
+  information about the position of the deleted characters. The letter
+  ``M'' is positioned at 1834 and the subsequent letter at position 1835
+  is deleted eleven times. This allows us to reconstruct the deleted
+  text.} Because this substitution was both performed and undone during
+the same session, it is not visible in the end document of this
+particular session (the session-version).
+\newpage
+
+When we try to encode this sentence, merging the text with the keystroke
+data, all the modifications can be put together as follows:
+\begin{example}
+\label{ex:bekius:1}
+\begin{lstlisting}[language=XML]
+<seg><add>M</add><del><add>Of is het m</add></del>
+<del>M</del>ijn oude hui<add>d</add><del>s</del>?</seg>
+\end{lstlisting}
+\end{example}
+
+\noindent The keystroke logging data thus provides more information about
+interdocumentary revisions than we can extract from analogue material:
+all interdocumentary variation is captured as intradocumentary variation
+within the keystroke logging data. When a keystroke logger is used while
+writing, textual development can no longer occur \emph{off the page} ---
+or at least: when authors keep their writing process within the
+confines of their Inputlog enabled computer, and when that process is
+logged without errors). In Bogaert's case, the records suggest that he
+occasionally pasted new or revised textual materials into the document
+that were produced in between explicitly logged writing sessions. This means that for these passages, there is no data available about how the variation came to be.
+
+\subsection{Encoding keystroke logging data instead of the
+document's
+layout}
+
+This leads us to the second difference between analogue and born-digital
+writing processes at the document level, which concerns the appearance
+of the document page itself. Complex handwritten draft materials often
+consist of chaotic pages that contain multiple textual fragments that
+were written at different positions and in different directions on the
+page. The page of Bogaert's notebook (See Figure \ref{fig:bekius:notebook}) shows text written in
+different colours, in the margins of the page, and between two lines. If we want ``to gain insight about
+the composition, time of revisions, and flow (flux) of the text'', we therefore need to carefully consider the physical aspects of the document (its layout, the arrangement of the text on the page, and what this tells us about how the text was written), and to inform that reading of the page with a good understanding of the text \citep[§1.3]{workgroup_on_genetic_editions_encoding_2010}. But when Bogaert uses a word
+processor, the document remains clean with every modification to the text
+(see Figure \ref{fig:bekius:notebook}): additions are always represented as inline insertions, and
+deleted text ``disappears'' from the surface. Logging the process with a
+keystroke logger that saves these modifications in a separate file prevents them from becoming untraceable. The crucial information about the
+genesis of the text thus shifts to the keystroke logging data. This
+calls for a different encoding of the revisions, that focuses on exactly those elements that make a difference in the keystroke logging data.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.45\textwidth]{media/Bekius08.png}
+    \includegraphics[width=.45\textwidth]{media/Bekius09.png}    
+    \caption{A comparison of Gie Bogaert's analog and digital writing processes. Left: a page in Bogaert's notebook his novel \emph{Roosevelt} (left). Right: a screenshot of a page in one of Bogeart's MS Word documents for the same novel.}
+    \label{fig:bekius:notebook}
+\end{figure}
+
+When the text is composed in a word processor, revisions cannot be
+specified with the attributes used in encoding analogue material.
+Instead of indicating the specific writing tool (which may be encoded in \lstinline[language=XML]!@rend!) or the location
+in the document (which may be encoded in \lstinline[language=XML]!@place!), digital revisions
+(specifically: \lstinline[language=XML]!<add>!s and \lstinline[language=XML]!<del>!s) can be further
+specified using their location in the text. These diverging behaviours in the writing of analogue versus digital documents forces us to completely rethink the ontology we use for encoding relative location in our transcriptions. In the following, I therefore propose a list of ``revision types'' on the basis from Lindgren and Sullivan's so-called ``revision taxonomy'' \citeyearpar{lindgren_analysing_2006}. By using their taxonomy as a starting point, we can encode the relative location of additions and deletions in the attributes of \lstinline[language=XML]!<add>! and \lstinline[language=XML]!<del>! tags in a way that is more relevant to born-digital writing processes (see Tables \ref{tab:bekius:encodinganalogue} and \ref{tab:bekius:encodingdigital}).\footnote{For good measure, the attributes for additions and deletions in witnesses of born-digital writing processes (Table \ref{tab:bekius:encodingdigital} are contrasted to those for analogue writing processes (Table \ref{tab:bekius:encodinganalogue}). The specific examples that were used to compile these tables are taken specifically from analogue and digital witnesses to Bogaert's writing process, but could be applied more generally.} 
+
+The first step in adopting Lindgren and Sullivan's taxonomy is to define
+revisions according to their relative location in the text, that is ``where and when in the
+writing process revision occurred'' \citep[42]{lindgren_writing_2006}.
+With regard to this location, the taxonomy distinguishes
+``pre-contextual'' revisions (i.e. ``revisions made before an externalised
+context is completed'') from ``contextual'' revisions (``revisions made
+within a completed externalised context''; see \citealt[159]{lindgren_analysing_2006}).\footnote{Within cognitive writing process research, the
+  writing process is generally divided into three consecutive
+  components: first the text has to be planned, then these internal
+  ideas have to be translated (externalized) into linguistic forms, and
+  then those forms have to be evaluated and revised where necessary
+ \citep{lindgren_writing_2006}. While writing, different types of
+  revision occur, and revision is mostly understood as ``making any
+  changes at any point in the writing process'' (\citealt[484]{fitzgerald_research_1987}; \citealt[346]{lindgren_revising_2019}). Two major categories for such revisions
+  are \emph{internal} and \emph{external} revisions. The former
+  encompasses ``overall, conceptual revision as well as conscious
+  evaluative revision and revision of pre-text'' \citep[37]{lindgren_writing_2006}. The latter are all ``visible changes made to the written
+  text'' \citep[37]{lindgren_writing_2006}. Inputlog only logs revisions made in already
+  externalized text; the encoding therefore covers the external
+  revisions.} These location-based revision types best resemble the use
+of attributes like \lstinline[language=XML]!@rend! or \lstinline[language=XML]!@place!, as they are based on the
+relationship between the keystroke data and the place in the document,
+rather than purely on the editor's interpretation.
+
+In the encoding of the keystroke data, these revision types may be
+applied to the textual unit of a sentence.\footnote{In the proposed
+  encoding scheme, each sentence is encoded with a
+  \lstinline[language=XML]!<seg>! tag.} Building upon the taxonomy by
+Lindgren and Sullivan, the attribute \lstinline[language=XML]!@type="context"! can be used to
+indicate that the revision is a contextual one, that is: a revision made
+in a previously written sentence. The attribute \lstinline[language=XML]!@type="pre-context"!, by
+contrast, may then be used to indicate revisions made before a sentence
+is completed and so concerns the author's most recently typed characters.
+Diverging from Lindgren and Sullivan's definition of pre-contextual
+revisions, pre-contextual deletions can take place at a point in the
+text with externalized text after the deleted text.\footnote{In the
+  taxonomy by Lindgren and Sullivan (2006), one feature of a
+  pre-contextual revision is that there is no externalized text after
+  the place of revision \citep[159]{lindgren_analysing_2006}. As literary writing is often a non-linear
+  process, new context can be created in other places than at the end of
+  the text. In order to be able to distinguish revision within a
+  sentence before this sentence is completed, I also regard these
+  revisions as ``pre-contextual''.}
+
+A large number of revisions in digital writing occur as a result of
+typographical errors. Within the scope of genetic criticism, such
+``typos'' are not the most meaningful entities because they do not
+immediately affect the meaning of the text. Within cognitive writing
+process research, typos are regarded as a revision type that ``often blur{[}s{]}
+the picture of the writing session'' \citep[68]{kollberg_s-notation_1998}. Typographical
+errors are ``low-level, and hence less important, types of revision'', and
+filtering them out would therefore allow for a more nuanced analysis of
+revision \citep[71]{conijn_how_2019}. But the revision of typographical
+errors can also break the flow in writing and therefore influence the
+writing process \citep[72]{conijn_how_2019}. For this reason, I propose to encode
+this type of revisions with a separate \lstinline[language=XML]!@type! attribute: \lstinline[language=XML]!@type="typo"!.
+This allows such errors to be filtered out in visualizations where they
+are irrelevant, while still allowing us to evaluate their effect on the
+writing process.\footnote{Typing errors can be hard to distinguish from
+  spelling errors. In the encoding of the typing errors, I therefore
+  used a list of criteria \citep[developed by][]{stevenson_revising_2006} for
+  distinguishing \emph{typing} revisions from \emph{spelling}
+  revisions. According to the checklist developed by Stevenson et
+  al., a revision can be identified as a typing revision, if one or more
+  of the following applies: ``a. the pre-revision form does not conform
+  to the orthographic rules of the language; b. the pre-revision form
+  involves a letter string which does not conform to a likely
+  pronunciation of the word; c. the semantic context indicates that the
+  pre-revision form could not have been intended; d. the same word is
+  written correctly at an earlier point in the text; e. a letter is
+  replaced by an adjacent letter on the keyboard'' \citep[232]{stevenson_revising_2006}.}
+
+The use of a keystroke logger allows for an exact reconstruction of the
+textual development. This includes the moment a new sentence is
+produced. Therefore, the production of new sentences can also be
+incorporated in the encoding (\lstinline[language=XML]!@type="nt"!; ``new text''), to be able to
+differentiate between ``new'' and ``old'' sentences.\footnote{Some text
+  segments may also be deleted and added again in a revised form;
+  thereby maintaining a semantic relationship with the previously
+  deleted text. This is not necessarily ``new'' text and may therefore be
+  given another attribute: \lstinline[language=XML]!@type="rt"! (`revised text'). However, the
+  encoding of such revised text adds a new level of interpretation to
+  the transcription. Whereas ``new text'' is a fairly objective
+  interpretation --- as the text is typed into the document for the first
+  time --- the classification ``revised text'' relies on the editor's
+  interpretation and their understanding of the text.} Writing is not
+always a linear process and sentences are not always finished before
+modifications are performed elsewhere in the text. The author could, for
+example, move away from the point in the writing where new meaning is
+produced: the so-called ``leading edge'' \citep{lindgren_revising_2019}. In the
+definition formulated by Lindgren et al., the leading edge is
+located ``typically at the end of the text produced so far, but can also
+occur at the end of insertions within previously written text where a
+writer inserts new ideas (not only revises form)'' \citep[347]{lindgren_revising_2019}. Unlike the
+point of inscription, which comprises ``all writers' actions in
+previously written text as well as at the end of the text produced so
+far'', the leading edge is restricted to the creation of new meaning
+\citep[347]{lindgren_revising_2019}. During the production of a sentence the author can decide to
+leave the sentence produced so far to make a revision elsewhere --- in
+the same sentence or at another segment of the text --- after which they
+return to the end of the sentence they were writing. This would not be
+an addition, because the sentence is not yet completed. However, the
+fact that the author moved away from the leading edge is meaningful for
+the interpretation of the writing process, as it provides information
+about the steps that were taken to write the sentence. To be able to
+identify this return to the leading edge, the text can be encoded using
+\lstinline[language=XML]!<mod>!. According to the TEI P5 Guidelines, the
+\lstinline[language=XML]!<mod>! element may be used to represent ``any kind
+of modification identified within a single document'' \citep[§11.3.4.1]{the_tei_consortium_tei_2020}. For
+the purpose of analysing digital writing processes, it may also be used
+for the ``modification'' of unfinished sentences --- the continuation of
+writing the sentence --- using the attribute: \lstinline[language=XML]!@type="continue"!. A
+transcription with the inclusion of \lstinline[language=XML]!<mod>! tries
+to model the flow of writing.
+
+\begin{figure}[H]
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+\begin{longtable}[]{@{}p{.05\textwidth}|p{.13\textwidth}|p{.18\textwidth}|p{.24\textwidth}|p{.2\textwidth}@{}}
+\caption{Specifications for additions and deletions in analogue
+material.\label{tab:bekius:encodinganalogue}} \\
+\toprule
+\lstinline[language=XML]!<add>!	& \lstinline[language=XML]!@hand="#GB"!	& \lstinline[language=XML]!@rend="#blueInk"!	& \lstinline[language=XML]!@type="#alternative"!	& \lstinline[language=XML]!@place="#marginleft"! \tabularnewline
+& & \lstinline[language=XML]!@rend="#blackInk"! & & \lstinline[language=XML]!@place="#supralinear"! \tabularnewline
+& & & & \lstinline[language=XML]!@place="#inline"! \tabularnewline\hline
+\lstinline[language=XML]!<del>!	& \lstinline[language=XML]!@hand="#GB"!	& \lstinline[language=XML]!@rend="#blackInk"!	& \lstinline[language=XML]!@type="#crossed Out"! & \tabularnewline
+& & & \lstinline[language=XML]!@type="#overwritten"! & \tabularnewline
+& & & \lstinline[language=XML]!@type="#instant Correction"! & \tabularnewline
+& & & \lstinline[language=XML]!@type="#underlined"! & \tabularnewline
+\bottomrule
+\end{longtable}
+
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+\begin{longtable}[]{@{}p{.05\textwidth}|p{.15\textwidth}|p{.2\textwidth}|p{.2\textwidth}|p{.2\textwidth}@{}}
+\caption{Specifications for additions and deletions in digital material.\label{tab:bekius:encodingdigital}} \\
+\toprule
+
+\lstinline[language=XML]!<add>! &	
+\lstinline[language=XML]!@seq="201308230815"!	&
+\lstinline[language=XML]!@type="context"! &
+\lstinline[language=XML]!@n="15"! &
+\lstinline[language=XML]!@evidence="6514-6556"! \tabularnewline
+& & \lstinline[language=XML]!@type="pre-context"! & & \tabularnewline
+& & \lstinline[language=XML]!@type="typo"! & & \tabularnewline
+& & \lstinline[language=XML]!@type="nt"! & & \tabularnewline
+& & \lstinline[language=XML]!@type="translocation"! & & \tabularnewline 
+
+\hline	
+
+\lstinline[language=XML]!<del>!	& 
+\lstinline[language=XML]!@seq="201308230830"!	& 
+\lstinline[language=XML]!@type="context"! & 
+\lstinline[language=XML]!@n="16"! &
+\lstinline[language=XML]!@evidence="6557-6567"! \tabularnewline
+& & \lstinline[language=XML]!@type="pre-context"! & & \tabularnewline
+& & \lstinline[language=XML]!@type="typo"! & & \tabularnewline
+& & \lstinline[language=XML]!@type="translocation"! & & \tabularnewline
+
+\hline
+
+\lstinline[language=XML]!<mod>!	&
+\lstinline[language=XML]!@seq="201308230840"!	&
+\lstinline[language=XML]!@type="continue"! &
+\lstinline[language=XML]!@n="17"!	& 
+\lstinline[language=XML]!@evidence="6576-6599"! \\
+
+\bottomrule
+\end{longtable}
+\end{figure}
+
+
+\noindent Most of these revision types can be illustrated using the steps taken by
+Bogaert when he wrote the example sentence from Table \ref{tab:bekius:soms} (``Soms kan hij meer krijgen dan wat hij voor zo’n kunstwerkje vraagt, maar dat wil hij nooit''). He started by writing ``\verb|Soms beiden|'', then moved his
+cursor between the two words using the left arrow key. There he wrote
+``\verb|krijgt h|''. This is a pre-contextual addition, because it takes place
+before the sentence is finished.
+
+\begin{example}
+\label{ex:bekius:2}
+\begin{lstlisting}[language=XML]
+<add type="nt">Soms <add type="pre-context">kan hij 
+meer </add><add type="pre-context">krijg<mod 
+type="continue">en dan wat hij voor zo< type="typo">
+n</del>'<add type="typo">n</add> kunstwerkje vraagt
+</mod> <del type="pre-context">t h</del></add><del 
+type="pre-context">beiden</del><mod type="continue">,
+maar dat <add type="typo">w</add>il hij n<add 
+type="context">ooit</add><del ="context">iet</del>
+</mod><mod type="continue">.</mod></add>
+\end{lstlisting}
+\end{example}
+
+\noindent Bogaert then continued writing with another pre-contextual addition
+between ``\verb|Soms|'' and ``\verb|krijgt|'': ``\verb|kan hij meer|''. After inserting this
+fragment, he relocates the cursor between the letter ``\verb|g|'' and the
+letter ``\verb|t|'' in the word ``\verb|krijgt|'' and continues writing. Bogaert left
+the leading edge (the point where he created new meaning) to make the
+pre-contextual additions, but after these insertions a new leading edge
+is created as he continues writing the sentence between the letter ``\verb|g|''
+and the letter ``\verb|t|''. At the new leading edge he writes: ``\verb|en dan wat hij voor zon' kunstwerkje vraagt|''; the screen would now have displayed
+the sentence as: 
+
+\begin{quote}
+Soms kan hij meer krijgen dan wat hij voor zon' kunstwerkje vraagtt \\ hbeiden.
+\end{quote} 
+
+\noindent The new leading edge was not positioned
+at the end of the unfinished sentence, but after the letter \verb|g| in the
+word ``\verb|krijgt|''. It was thus followed by ``\verb|t hbeiden|''.
+
+Bogaert then corrects the typo made in the production ``\verb|zon'|'' (the
+apostrophe was incorrectly positioned) after which he eventually
+deletes the bulk of unused characters at the end of the sentence. These
+are all pre-contextual deletions; the sentence is still not finished. Now
+the leading edge is positioned at the end of the sentence, where Bogaert
+continues writing: ``\verb| , maar dat il hij niet|''. After correcting the
+typo with an addition --- he missed the letter ``\verb|w|'' in writing ``\verb|wil|''
+--- he types the full stop. This marks the moment the writing of the
+sentence is finished. Somewhat later in the session, Bogaert returns to
+the sentence to make a contextual revision. He substitutes ``\verb|niet|'' with
+``\verb|nooit|'' by adding ``\verb|ooit|'' and deleting ``\verb|iet|''. The writing process
+of this sentence illustrates the complexity of digital writing, but also demonstrates that the proposed 
+encoding succeeds in capturing every step in the process.\footnote{Bogaert
+  explained in conversation that, when writing in the Word document, he
+  focuses primarily on finding the right words. For him, this is the
+  hardest part of the writing process. The rather complex way in which
+  he types this sentence could reflect this. While doing so, he seems
+  primarily orientated towards its reformulation. However, this also
+  reflects Bogaert's personal typing habits.} Still, this encoding misses an important
+aspect of the writing process: time.
+
+\section{Specific encoding of time}\label{specific-encoding-of-time}
+
+Inputlog logs every keystroke and mouse movement in combination with a
+timestamp. Unlike analogue writing processes, the keystroke logging data
+allows us to incorporate the specific time of writing into the encoding.
+Through this temporal aspect, the writer can --- so to speak --- be
+followed through the text. Lindgren and Sullivan mention this aspect of
+keystroke logging too when they argue that the location of revisions
+
+\begin{quote}
+shows how the writers move their points of focus during text
+composition; this can be viewed as the route writers take through their
+texts. The actions writers perform during composition can, for example,
+hint at the writers' developing ideas and associated shifts in text
+focus.
+\begin{flushright}
+\citep[39]{lindgren_writing_2006}
+\end{flushright}
+\end{quote}
+
+\noindent 
+Incorporating the recorded time of the revision
+into the encoding thus offers a unique opportunity to study the text's
+genesis at a microscopic level --- what I referred to as its
+``nanogenesis'' earlier.
+
+The timestamp enables the genetic scholar to investigate the location at
+which the author was working before they made a revision at another
+place in the text, when (and how quickly) revisions were made, and if there
+were certain revision campaigns. To analyse this, the
+editor may encode the timestamp for each addition and deletion and every
+other event worth mentioning, by using the \lstinline[language=XML]!@seq! attribute (e.g.
+\lstinline[language=XML]!@seq="yyyymmddhhmmss"!). The editor can choose to incorporate the dates
+of the writing sessions, so as to visualize the chronology of the
+writing process, not only within a single session but also across
+several (or all) sessions. The hours, minutes and seconds indicate the
+time after the start of the session added to the time the session is
+started.\footnote{The time is derived from the ``StartClock'' in the
+  ``General Analysis'' of Inputlog, which is added to the start time of the session in question. In order to be able to retrieve the
+  event in keystroke data, the unique ID of each event in the keystroke
+  data needs to be included in \lstinline[language=XML]!@evidence!. As the time of every keystroke
+  is given, the editor needs to make a decision as to which time to
+  incorporate in the encoding. For a genetic analysis, the time of an
+  event's first keystroke may be the most fitting option; for example,
+  when the first key is pressed to start production of a new sentence.}
+As such, this notation provides the exact time the textual input took
+place. The TEI P5 Guidelines propose the attribute \lstinline[language=XML]!@seq! (sequence) for
+assigning ``a sequence number related to the order in which the encoded
+features carrying this attribute are believed to have occurred''
+\citep[§11.3.1.4]{the_tei_consortium_tei_2020}. In the case of the logged writing processes, the \lstinline[language=XML]!@seq!
+attribute can be very specific as the data provides information about
+the time the deletions and additions were being made.
+
+The timestamp given in \lstinline[language=XML]!@seq! can subsequently be used to number all the
+changes in \lstinline[language=XML]!@n!. Using an XSLT script, the events can be listed
+chronologically in \lstinline[language=XML]!<listChange>! and allocated a
+number.\footnote{I would like to thank Vincent Neyt for writing the XSLT
+  script for this purpose.} The \lstinline[language=XML]!@n! includes the number of appearances of
+all insertions and deletions, as well as all returns to the leading
+edge. From a computational perspective, the number in \lstinline[language=XML]!@n! provides the
+same information as is given in \lstinline[language=XML]!@seq!: the chronology of the
+modifications. The benefit, however, is for the (human) reader. In the
+eventual transcription, the numbers will offer the reader the
+possibility to see the sequence of the revision in one glance (see
+section \ref{sec:bekius:interpretation}). This is one step into making the complexity of the (digital)
+writing process more easily analysable for the reader. The example below
+shows the encoding of the same sentence discussed above, with the
+inclusion of the time and the order of appearance, starting from 27.
+
+
+\begin{example}
+\label{ex:bekius:3}
+\begin{lstlisting}[language=XML]
+<add seq="20130826151155" type="nt" evidence="1342" 
+n="27">Soms <add seq="20130826151216" type="pre-context"
+evidence="1400-1411" n="29">kan hij meer </add><add 
+seq="20130826151210" type="pre-context" evidence="1374-
+1383" n="28">krijg<mod seq="20130826151221" 
+type="continue" evidence="1423" n="30">en dan wat hij 
+voor zo<del seq="20130826151232" type="typo" 
+evidence="1508-1509" n="31">n</del>'<add 
+seq="20130826151233" type="typo" evidence="1513" n="32">
+n</add> kunstwerkje vraagt</mod><del seq="20130826151236"
+type="pre-context" evidence="1552-1557" n="33">t h</del>
+</add><del seq="20130826151237" type="pre-context" 
+evidence="1559-1581" n="34">beiden</del><mod 
+seq="20130826151241" type="continue" evidence="1595-1643" 
+n="35">, maar dat <add seq="20130826151248" type="typo" 
+evidence="1643" n="36">w</add>il hij n<add 
+seq="20130826154211" type="context" evidence="10622-
+10625" n="170">ooit</add><del seq="20130826154212" 
+type="context" evidence="10626-10633" n="171">iet</del>
+</mod><mod seq="20130826151254" type="continue" 
+evidence="1666" n="37">.</mod></add>
+\end{lstlisting}
+\end{example}
+
+\noindent The number gives the exact order in which the modifications were carried
+out while keeping editorial interference to a minimum. This contrasts
+with analogue sources, where the complexity of documentary evidence
+turns the numbering of revisions into a highly interpretative act
+resulting only in speculative readings \citep[90]{dillen_digital_2015}. By comparison,
+the keystroke data allows for a detailed reconstruction not only of the
+revisions made at sentence level, but those at complete-text level as
+well. If the author first made a revision to a sentence in the middle of
+the text and then another in a sentence at the top of the text, this
+movement through the text can be reconstructed, and also --- crucially ---
+referenced in analyses of the writing process.\footnote{The
+  transcriptions below (see Figure \ref{fig:bekius:session30} and Figure \ref{fig:bekius:latenstart}) and the discussion
+  thereof, provide an example of how the numbers in \lstinline[language=XML]!@n! can be used to
+  quote specific revisions.}
+
+\hypertarget{peculiarities-of-digital-writing}{%
+\section{Peculiarities of digital
+writing}\label{peculiarities-of-digital-writing}}
+
+In the encoding of the keystroke logging data, the way the text is typed
+is taken into account. This way, we can distinguish between different typing styles. In this respect, at least two characteristics in digital
+writing become apparent: 1) the recycling of words and characters, and
+2) the different ways of performing a deletion. These characteristics
+may guide editors in the decisions they make in the encoding of
+born-digital writing processes.
+
+\subsection{Recycling}\label{recycling}
+
+Although the act of deleting is effectively free of cost in a word processor \citep[256]{sullivan_work_2013}, authors might recycle words and characters in
+rewriting their texts. This characteristic is also noted by Py Kollberg
+in her study of digital revisions (1998). She discusses how a writer in
+her corpus keeps the ``\verb|t|'' in substituting ``\verb|there|'' for ``\verb|it|'':
+
+\begin{quote}
+Probably in order to minimize the effort to make this change, the writer
+keeps the \emph{t} in \emph{it}, and uses it in the new word
+\emph{there}. Two elementary character level revisions performed at
+different positions are the result, but the effect of both revisions is
+at the word level (and the words are at the same position). Many writers
+would have deleted the whole word in this situation. 
+\begin{flushright}
+\citep[78; emphasis in original]{kollberg_s-notation_1998}
+\end{flushright}
+\end{quote}
+
+\noindent
+Kollberg concludes that people develop personal habits in their use of
+the word processor; each writer has their ``own personal set of
+organization of operations'' and is used to performing ``certain actions
+in certain ways'' \citep[78]{kollberg_s-notation_1998}. Not unlike handwriting, typing
+styles contain a ``fingerprint'' of the writer \citep[5]{lindgren_researching_2019}.\footnote{This also depends on the computer or laptop
+  used; the keyboards used in a desktop PC set-up are more likely to
+  incite use of the delete key, which is not available as a single
+  button on many laptop keyboard layouts --- see also section \ref{sec:bekius:deletions}.}
+Because genetic criticism is interested in the author's way of working,
+the way in which they make use of the word processor also needs to be
+apparent in the transcription.
+
+As for Bogaert's way of typing, his recycling of words is very
+prominent. Indeed, it is already present in the sample sentence
+discussed above (see Examples \ref{ex:bekius:2} and \ref{ex:bekius:3}). Here, Bogaert added the clause ``\verb|en dan wat hij| \verb|voor zon' kunstwerkje vraagt|'' between ``\verb|krijg|'' and the
+letter ``\verb|t|'' of the word ``\verb|krijgt|''. As such, he recycles the word part
+``\verb|krijg|'', re-using it in the word ``\verb|krijgen|''. This re-use can be
+detected at the word level as well, as Bogaert kept the letter ``\verb|n|'' in
+the substitution of ``\verb|niet|'' with ``\verb|nooit|''. This is quite
+characteristic of Bogaert; as Kollberg remarked in a similar situation quoted above, many others  would have deleted the
+entire word.
+
+This recycling of words and characters makes transcription of the
+writing process a complex matter, as it makes the concise representation
+of the flow of writing more challenging. This characteristic therefore
+highlights the importance of encoding the returns to the leading edge
+with a different tag. In the genetic transcription (Figure \ref{fig:bekius:session30}), it is
+possible to reconstruct that ``\verb|en dat wat hij voor zo'n kunstwerkje vraagt|'' (n30) was written between ``\verb|krijg|'' (n28/1) and ``\verb|t h|'' (n28/2)
+while taking into account that this is not a regular addition, but the
+writing of the sentence itself. In this visualization, the process of
+the writing is emphasized and the singularity of Bogaert's writing
+accentuated. Hence, it is important to encode the separate steps in the
+writing process in order to be able to reconstruct the flow of writing.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{media/Bekius10.png}
+    \caption[Transcription of a paragraph in session 30, showing all the
+different modifications.]{Transcription of a paragraph in session 30, showing all the different modifications. For a legend of the colours and symbols used in this transcription, see Table \ref{tab:bekius:legend} in Appendix \ref{app:bekius:legend} below.}
+    \label{fig:bekius:session30}
+\end{figure}
+
+
+\subsection{Deletions}\label{sec:bekius:deletions}
+
+Another way in which typing styles become apparent is the usage of the
+keyboard in making a deletion. As Kollberg notes, a delete operation can
+be performed in two directions: forwards and backwards \citep[29]{kollberg_s-notation_1998}. A
+forward deletion removes characters to the right of the cursor, a
+backward deletion those to its left \citep[29]{kollberg_s-notation_1998}. A forward
+deletion may be carried out by using the delete key or by selecting the
+characters to the right of the cursor and pressing the backspace key.
+Using only the backspace key performs a backward deletion. The way the
+writer uses the keyboard in performing revision affects the encoding of
+the revision.
+
+When a writer uses the backspace key to delete characters in a
+substitution --- a backward deletion --- the deleted word will usually
+appear in front of the inserted word. If the author uses the backspace
+key to delete words during the production of a sentence, the cursor is
+continuously positioned at the end of the leading edge. During
+production of the clause in Example \ref{ex:bekius:4}, ``\verb|de sheerne khoran kan worden gebracht|' [\emph{the sheerne khoran can be brought}], Bogaert changed the
+simple past tense verb ``\verb|kon|'' into the simple present tense ``\verb|kan|''.
+After writing ``\verb|kon|'', he deleted ``\verb|on|'' and then continued writing by
+typing ``\verb|an|'':
+
+\begin{example}
+\label{ex:bekius:4}
+\begin{lstlisting}[language=XML]
+<seg>[...]de sheerne khoran k<del seq="20140717142431"
+type="pre-context" evidence="6689-6690">on</del>an
+worden volbracht [...]</seg>
+\end{lstlisting}
+\end{example}
+
+\noindent
+This pre-contextual deletion can be considered as the digital equivalent
+of \emph{currente calamo} deletions in analogue material, which
+``usually characterize writing produced by an author in the throes of
+composition, with corrections or revisions made immediately rather than
+later'' \citep[104]{beal_dictionary_2011}. The linearity of the pre-contextual deletions
+and the production of the sentence facilitate the readability of the
+encoding.
+
+The author may also use the delete key to remove a part of the text --- a
+forward deletion. Bogaert prefers this technique: when he makes a
+substitution, he writes the addition prior to the deletion so that the
+new word appears to the left of the older one --- in the substitution of
+``\verb|niet|'' with ``\verb|nooit|'', for instance, the writing of ``\verb|ooit|'' preceded
+the deletion of ``\verb|iet|''. The addition therefore appears before the
+deletion in the encoding. In the encoding of analogue material, however, Elli Bleeker
+notes that a deletion is normally located 
+
+\begin{quote}
+before [i.e. ``to the left of''] an addition in a
+transcription (regardless of the actual positioning of these elements [on the document]),
+simply because --- in the western world --- we read a transcription from
+left to right and we usually assume that a word is first deleted and
+then replaced. 
+\begin{flushright}
+\citep[98]{bleeker_future_2015}
+\end{flushright}
+\end{quote}
+
+\noindent 
+This choice is usually guided by the
+goal of the transcription of analogue material: to render the text more
+readable \citep[98]{bleeker_future_2015}. In the transcription of a digital writing
+process, the goal is also to reconstruct that process --- as this is not
+visible in the document --- and to capture the author's way of working.
+The additions and deletions are therefore best placed in the position at
+which they occurred: the way the deletions are performed dictates the
+decisions made in the encoding.
+
+\section{Interpretation, selection and
+argumentation}\label{sec:bekius:interpretation}
+
+The proposed encoding produces a transcription of the keystroke logging
+data in order to provide data output suitable for a genetic analysis.
+Specifically, it allows for the examination of revisions and new
+text production, their sequences and their effect on the text. This transcription alone is not sufficient to create a digital genetic edition, but it provides a sound basis for the visualization of the writing process. Moreover, the act of encoding the keystroke logging data does coincide with the encoding practice for analogue material in that, here too, ``relatively simple
+text encoding forces us to make editorial decisions'' \citep[112]{bleeker_future_2015}. In the case of keystroke logged writing processes, the need for
+abstraction (and therefore interpretation) of the recorded material only
+increases, because there is so much additional information available to the editor. As the examples above demonstrate, simply converting the writing actions that are recorded in the logging data
+to their editorial representations already implies making a series of editorial choices, such as selecting the data and deciding where the encoded
+insertions and deletions should be located in the transcription. While the keystroke logging data serves to
+make more objective observations about the sequence of the writing, it
+also forces the editor to make their interpretation of the material even
+more explicit.
+
+The transcription of the keystroke logging data tries to be as objective
+as possible. In its proposal to complement a text-oriented approach with
+a document-oriented one, the TEI Ms SIG refers to the opposition in
+German editorial theory --- as coined by Hans Zeller --- between the
+``Befund'' and the ``Deutung''. Respectively, these refer to ``what is there in the source
+document, the record'' (Befund), and ``the interpretation of this phenomenon'' (Deutung)  \citep[§1.1]{the_tei_consortium_tei_2020}. The Workgroup notes that one
+cannot talk about the record without any interpretation (especially not
+in the realm of genetic criticism) but does make a distinction
+between different levels of interpretation: 
+
+\begin{quote}
+there is an obvious
+difference between the interpretation that some trace of ink is indeed a
+specific letter and the assumption that a change in one line of a
+manuscript must have been made at the same time as a change in another
+line because their effects are textually related.
+\begin{flushright}
+\citep[§1.1]{the_tei_consortium_tei_2020}
+\end{flushright}
+\end{quote}
+
+\noindent 
+The Workgroup therefore proposes making a
+distinction between the interpretation of ``what's there''
+(document/fact) and ``how does it relate'' (text/interpretation)
+ \citep[§1.1]{the_tei_consortium_tei_2020}. A similar distinction is made in research into cognitive
+writing process, when it differentiates between what are called \emph{elementary
+revisions}, and \emph{interpreted revisions}. According to Kollberg, an elementary revision is a single
+deletion or insertion, and the analysis of such elementary
+revisions is therefore based only on ``the writer's overt action in
+manipulating the text, with a minimum of interpretation of how revisions
+may be related according to the writer's intentions'' \citep[16]{kollberg_s-notation_1998}. Interpreted revisions, on the other hand, are revisions which are
+analysed at a higher level. For example, if ``two or more elementary
+revisions that are seemingly united by the same goal may be combined and
+interpreted by the researcher as a unit'' \citep[17]{kollberg_s-notation_1998}. 
+
+Following that logic, the
+proposed encoding therefore focuses solely on the elementary revisions.
+For example, the distinction between contextual and pre-contextual
+revisions rests only on the author's actions as they are recorded in the
+keystroke logging data. When a revision is made during the production of
+a sentence (before the author presses the full stop), it is marked as a
+pre-contextual revision. When the revision is made within a completed
+sentence (after the full stop is typed), it is marked as a contextual
+revision. In addition, revisions are encoded according to the way they
+are performed and the replacement of one word with another is not encoded
+as a substitution.\footnote{For example, when ``\texttt{niet}'' is changed to ``\texttt{nooit}'' by adding ``\texttt{ooit}'' and deleting ``\texttt{iet}'', only ``\texttt{ooit}'' and ``\texttt{iet}'' are marked with elements.} Nevertheless, this can only allow for a certain degree
+of objectivity, since the selection of the material already involves
+interpretation \citep[38]{dillen_editor_2018}.
+
+Selection plays a pivotal part in the encoding of the keystroke logging
+data. Although the transcription sets out to represent the author's
+movement through the text, many indications of movement have been left
+out of the encoding. The encoding marks only the textual output, as
+generated by the keyboard, consisting of characters and punctuation
+marks. As such, it omits the keyboard events ``\verb|UP|'', ``\verb|DOWN|'', ``\verb|LEFT|'' and ``\verb|RIGHT|''. The same applies to the mouse movements. In focusing on the
+textual output, the encoding also ignores data provided about pauses,
+their locations and the timing of each action. Moreover, as the only
+time that is encoded in the transcription is the start time of any
+modification, the time between the end of one revision and the start of
+another is omitted as well. This means that the time between two
+subsequent revisions cannot be deduced. This does not imply, for
+instance, that long pauses or other time indications cannot be encoded
+in the transcription, but rather that such an encoding does not lie
+within the scope of this particular transcription. The main aim of this
+transcription is to help the scholar/reader follow the sequence of text
+production and revisions with a focus on the text and its
+meaning.\footnote{Providing another transcription in which the pauses
+  are encoded would indeed be useful, as it would provide information
+  about the fluency of the writing. This may help interpret the sequence
+  of the revisions from a cognitive perspective.} By reducing the
+presentation of other kinds of information, the scholar/reader is less
+distracted from analysing the text. Still, even with a focus on the
+textual output, interpretation remains a key factor in the encoding as
+``the idea of presenting a text in an objective way is problematic and
+arguably impossible'' 
+\citep[114]{bleeker_future_2015}. This seems even more true
+when encoding keystroke logging data, as the editor is setting out to
+reconstruct a state of the text which has never existed in full.
+
+When all the deletions and insertions within a given session are
+encoded, we arrive at a state of the text that has never actually
+appeared on the author's computer screen as such, and has therefore never
+interacted with. This might present us with some issues, such as the question where
+to encode insertions and deletions  when several
+revisions are located at virtually the same position in the logs \citep[34]{kollberg_s-notation_1998}.
+The editor's interpretation is necessary in these instances, especially when the author makes an
+insertion next to a place in the document where there was a previous deletion. That is the case because when the author inserts text, the text is inserted at the cursor location. But since any
+previously deleted text remains visible in the encoding, there is no straightforward place to locate the insertion in relation to the previously deleted text \citep[34]{kollberg_s-notation_1998}. A protocol for such cases could be that when  it pertains a single insertion, the insertion should be encoded to the right of the previous deletion --- in line with Bleeker's argument for encoding deletions and additions in analogue witnesses. And when it comes to
+substitutions, the way in which the insertion and deletion were performed could help make the most accurate decision. For example, when new text was inserted first, and the old text forward deleted afterwards, we could transcribe the insertion first (i.e. to the left) and the deletion second (i.e. to the right).
+
+The editor's interpretation also comes to the fore in the transformation
+of the TEI-XML encoding. Joris van
+Zundert and Tara Andrews argue that the interface of the digital edition
+functions as an argument: ``Our first observation is that a digital
+edition's interface is an argument --- not just an argument about the
+text, but also an argument about the ``attitude'' of the editor, a window
+into his or her take on methodology and the digital edition itself''
+\citeyearpar[7]{andrews_what_2018}. The interface of a digital scholarly edition ``is always
+closely linked to the data model of the underlying data and the
+editorial principles expressed in this data model'', so they function as
+``an interpretation of knowledge and provide users with a more or less
+``guided'' tour through the data and its general presentational setting'' \citep[VII]{bleier_discussing_2018}. While different transcriptions given below
+cannot be considered as a fully developed interface, they already
+function as ``an integral part of rhetorical form'' since they
+foreground the textual development \citep[8]{andrews_what_2018}. As an example, I
+shall discuss some possible transcriptions of the paragraph that includes
+the example sentence I refered to above, with a view to guiding attention towards
+the dynamics and non-linearity of the writing process --- in this case
+within a single writing session.
+
+The first option is to display a transcription that simply presents a
+reconstruction of all the textual operations within their textual
+context. This transcription promotes reading of the text with all the
+modifications made during this session. The different types of
+modification are visualized in different colours, which indicate that
+the writing of this paragraph proceeded in different steps. At a glance,
+one can see the dynamics that underlie the writing process:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/Bekius11.png}
+    \caption{Transcription of another paragraph in session 30, displaying all the different modifications.}
+    \label{fig:bekius:latenfull}
+\end{figure}
+
+\noindent
+The transcription can then be modified to show how the text developed
+during the session. By removing all the added text, this transcription
+visualizes the text within the paragraph that was already written at the
+moment Bogaert started this new session:
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/Bekius12.png}
+    \caption{Transcription of the same paragraph in session 30, displaying the text as it was at the beginning of the session.}
+    \label{fig:bekius:latenstart}
+\end{figure}
+
+\noindent Conversely, the deleted text can also be removed. This enables readers
+to see the state of the text at the end of the session. By providing the
+option to read the state of the text at the beginning and the end of the
+session, one is encouraged to focus on how the text developed and on which
+steps were taken during its writing. This shows that the first and the second
+sentence were transposed and that Bogaert added eight new sentences:\footnote{In
+fact, Bogeart added nine of them: one of the sentences was then deleted during the same
+session.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/Bekius13.png}
+    \caption{Transcription of a paragraph in session 30, displaying the
+text at the end of the session.}
+    \label{fig:bekius:latenstop}
+\end{figure}
+
+\noindent Next, the sequence of all the modifications can be studied by displaying
+their numbers in sequential order. The first modifications in this
+paragraph are the insertions of four new sentences (n14-n17);\footnote{The numbers (e.g., n14) refer to the chronology of each modification made in this paragraph during this logged writing session and coincide with the \lstinline[language=XML]!@n! attribute in XML (see also Appendix \ref{app:bekius:legend}).} the writing of the fourth of these is interrupted by
+typing errors in ``\verb|shilderijtejes| [\emph{sic}]'' (n18-n20;
+[\emph{paintings}]), which Bogaert corrects before
+finishing the sentence with ``\verb|die hij maakt en verkoopt.|'' (n21; [\emph{which
+he makes and sells}]). Hence, if one continues following the sequence of
+all the writing operations in chronological order, the nanogenesis can
+be analysed. This shows, for example, that Bogaert wrote the seventh
+sentence (n22) and then returned to the sixth sentence to insert the
+clause, with typos, ``\verb|aan en| [\emph{sic}] \verb|paar vieden| [\emph{sic}] \verb|en famileileden|
+[\emph{sic}]'' (n23; [\emph{to a few friends and family
+members}]). He then immediately substituted ``\verb|famileileden|
+[\emph{sic}]'' (n25; [\emph{family members}]) with ``\verb|verwanten|'' (n24; [\emph{relatives}]). The sentences ``\verb|Maar het is best wel goed|'' (n99; [\emph{But it is pretty good}]) and ``\verb|Het is zo'n jongen van wie je alleen maar kan houden|'' (n150; [\emph{He's the kind of guy you can only love}]) were
+inserted later, which indicates that he did not work continuously on
+this paragraph but relocated the point of inscription to other locations
+in the text in the meantime. The order of some revisions might also
+indicate a relationship between them; the quest to correct typos
+(n91-n94) and inserting a new sentence after deleting another
+(n149-n150). The sequence of the modifications shows the continuous
+shaping and reshaping of the text by Bogaert, a process made possible by the word processor:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/Bekius14.png}
+    \caption{Transcription of a paragraph in session 30, displaying the
+sequence (numbers) of the modifications. For a legend of the colours and symbols used in this transcription, see Table \ref{tab:bekius:legend} in Appendix \ref{app:bekius:legend} below.}
+    \label{fig:bekius:latennumbers}
+\end{figure}
+
+
+\noindent Lastly, symbols can be added to the transcription to provide an
+option for colour-blind users to still be able to distinguish the different
+modifications (see Appendix \ref{app:bekius:legend}).
+Adding these symbols can also enhance readability at the borders of the
+insertions and deletions; for example, by distinguishing the contextual
+addition ``\verb|verwanten|'' within the contextual addition ``\verb|aan en| [\emph{sic}] \verb|paar vienden| [\emph{sic}] \verb|en famileileden| [\emph{sic}]'':
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{media/Bekius15.png}
+    \caption{Transcription of a paragraph in session 30, displaying the
+sequence (numbers) of the modifications and symbols.}
+    \label{fig:bekius:latensymbols}
+\end{figure}
+
+\noindent Overall, these different transcriptions aim to make the argument that the
+sequence of the writing operations and the overall development of the
+text are our main points of attention, and can then be used for further
+analysis. For example, to examine the effect of the revisions, and how they relate and interact with one another.
+
+\section{New perspectives}
+
+The combination of the Word documents (the session-versions) with the
+keystroke logging data (the process) serves to uncover a text that had become
+invisible during the writing process because of the
+overwriting nature of word processors. The example transcriptions I provided throughout this paper prove that is possible to arrive at a genetic transcription of born-digital works of literature that were composed using a keystroke logger in a way
+that also makes it possible to represent all the different actions that were performed as the text was written. By adding the time to the revision, the
+sequentiality of all the revisions can also be reconstructed, which
+enables a detailed analysis of the way the author moved through the text and how
+sentences were produced. According to Elena Pierazzo, such a scholarly
+consideration of time plays a pivotal role in the case of modern
+autograph drafts and working manuscripts because: 
+
+\newpage
+\begin{quote}
+the stratification of corrections, deletions and additions can give insights into an author's way of working, into the work itself, the evolution of the author's \emph{Weltanschauung}, the meaning/interpretation of the text.
+\begin{flushright}
+\citep[171]{pierazzo_digital_2009}
+\end{flushright}
+\end{quote}
+
+\noindent
+Compared with analogue text genetic material, the
+keystroke data encompasses detailed information about the process in
+which the text was produced. Logging writing processes with a keystroke
+logger enables an analysis of the textual genesis at a finer
+granularity: at the level of the work's nanogenesis. Future research will have to indicate whether such a nanogenetic
+perspective will lead to new perspectives on (the genesis of) a text and
+the way present-day authors write their texts. In addition, born-digital
+writing processes alter our notions of ``variants'' and ``versions'' \citep{van_hulle_logica_2019}. The transcriptions of the keystroke logging data offer a
+starting point for reflection on this question and for help in
+redefining these key concepts. In other words, there are still challenges aplenty for textual
+scholars in the twenty-first century.
+
+\section*{Appendix}
+\begin{subappendices}
+
+\subsection{Genetic Visualization Notation Legend}
+\label{app:bekius:legend}
+In the transcriptions that were visualized in Figures \ref{fig:bekius:session30}, \ref{fig:bekius:latenfull}, \ref{fig:bekius:latenstart}, \ref{fig:bekius:latenstop}, \ref{fig:bekius:latennumbers} and \ref{fig:bekius:latensymbols} (see pages \pageref{fig:bekius:session30} and \pageref{fig:bekius:latenfull}--\pageref{fig:bekius:latensymbols} above), the different types of modifications are indicated with different colours, and, if preferred, with symbols (see Table \ref{tab:bekius:legend} below). The numbers in superscript refer to the chronology of each modification made during the logged writing session and coincide with the \lstinline[language=XML]!@n! attribute in XML. The numbers belong to nearest textual element in the same colour, and the numbers associated with the insertion of new text and the continuation of unfinished sentences are positioned at the beginning of the relevant text segment, while those associated with the revision types are located at its end. Since insertions can be made within insertions, higher numbers can appear within text elements which have been allocated another (lower) number. The same applies to deletions within previous inserted text. If not interrupted by a number and text segment in orange (indicating the continuation of an unfinished sentence) or text and number in red and bright green (respectively pre-contextual deletions and pre-contextual additions) the production of a new sentence was uninterrupted and therefore runs from start to end.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{media/Bekius16.png}
+    \caption{Legend}
+    \label{tab:bekius:legend}
+\end{table}
+
+\subsection{Inputlog's General Analysis}
+\label{app:bekius:generalanalysis}
+
+Table \ref{tab:bekius:general} below shows the General Analysis of the writing process of following sentence in Gie Bogaert's \emph{Roosevelt} (referenced in Table \ref{tab:bekius:soms}, p.\pageref{tab:bekius:soms}; Figure \ref{fig:bekius:session30}, p.\pageref{fig:bekius:session30}; Example \ref{ex:bekius:2}, p.\pageref{ex:bekius:2}; and Example \ref{ex:bekius:3}, p.\pageref{ex:bekius:3}):
+
+\begin{quote}
+Soms kan hij meer krijgen dan wat hij voor zo'n 
+kunstwerkje vraagt, maar dat wil hij nooit.
+\end{quote}
+
+\noindent
+In the table, the first column (\textit{\#id})
+shows the number of the event (consecutively). In the second column the \textit{Event Type} indicates the kind of event that was recorded, be that of the type \verb|keyboard|, \verb|mouse|, \verb|speech|, \verb|focus|,  \verb|insert| or \verb|replacement|. 
+The next column then shows the event's
+\textit{Output}. In case of a keyboard event, this output records the typed
+letter. The position in the fourth column (\textit{Pos.}) represents the ``cursor
+position''. The fifth column (\textit{Doc. Len.}) shows the ``length of the document'' expressed in
+characters. This differs from the character production represented in
+the sixth column (\textit{CP}), which shows all the characters produced during all
+the writing sessions so far. The \textit{Start Time} and \textit{Start Clock} (columns
+seven and eight) show the time of the ``key in'' --- respectively in
+milliseconds and in clock time --- and the \textit{End Time} and \textit{End Clock}
+(columns nine and ten) of each ``key up''. The Action Time (\textit{Act. Time}; column
+eleven) represents the time between each key in and key up, the
+\textit{Pause Time} (column twelve) the time between two key ins. The location
+of the pause is shown in \textit{Pause Location} (column thirteen). 
+  
+As such, this table reproduces all the information from Inputlog's logging output, except for three columns: \textit{x}, \textit{y}, and another \textit{Pause Location} column (of the same name). In the original output, the \verb|x| and \verb|y| columns  respectively track the location of the mouse on the x and y-axes on the screen \citep{leijten_keystroke_2013}, and are only logged for \verb|mouse| event types (and therefore remained empty for this writing action). The other \textit{Pause Location} column was logged a number code for each of the (written out) location types (such as \verb|BEFORE WORDS|, \verb|WITHIN WORDS|, etc.) --- and therefore carries no additional relevant information. Overall, then, the General Analysis provides information about what
+was written where and when, and therefore provides all the details
+needed for a fine-grained reconstruction of the writing process.
+
+
+\begin{center}
+\centering\tiny\renewcommand{\arraystretch}{1.5}
+
+\begin{longtable}[]{@{}p{.0075\textwidth}p{.08\textwidth}|p{.075\textwidth}|p{.0075\textwidth}p{.0075\textwidth}p{.0075\textwidth}p{.025\textwidth}p{.06\textwidth}p{.025\textwidth}p{.06\textwidth}p{.01\textwidth}p{.01\textwidth}p{.175\textwidth}@{}}
+\caption{\label{tab:bekius:general}}  \\
+\toprule
+\textit{\#id} & \textit{Event Type} & \textit{Output} & \textit{Pos.} & \textit{Doc. Len}. & \textit{CP} & \textit{Start Time} & \textit{Start Clock} & \textit{End Time }& \textit{End Clock} & \textit{Act. Time} & \textit{Pause Time} & \textit{Pause Location}\tabularnewline
+\midrule
+\endfirsthead
+
+\caption{continued}  \\
+\toprule
+\textit{\#id} & \textit{Event Type} & \textit{Output} & \textit{Pos.} & \textit{Doc. Len}. & \textit{CP} & \textit{Start Time} & \textit{Start Clock} & \textit{End Time }& \textit{End Clock} & \textit{Act. Time} & \textit{Pause Time} &\textit{Pause Location}\tabularnewline
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+1342 & \verb|keyboard| & S & 4155 & 6702 & 6737 & 284827 & 00:04:44.827 & 284889 & 00:04:44.889 & 265 & 655 & \verb|BEFORE WORDS|
+\tabularnewline 
+1343 & \verb|keyboard| & o & 4156 & 6703 & 6738 & 285154 & 00:04:45.154 & 285217 & 00:04:45.217 & 63 & 327 & \verb|WITHIN WORDS|
+\tabularnewline 
+1344 & \verb|keyboard| & m & 4157 & 6704 & 6739 & 285279 & 00:04:45.279 & 285357 & 00:04:45.357 & 78 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1345 & \verb|keyboard| & s & 4158 & 6705 & 6740 & 285310 & 00:04:45.310 & 285388 & 00:04:45.388 & 78 & 31 & \verb|WITHIN WORDS|
+\tabularnewline 
+1346 & \verb|keyboard| & SPACE & 4159 & 6706 & 6741 & 285498 & 00:04:45.498 & 285560 & 00:04:45.560 & 62 & 188 & \verb|AFTER WORDS|
+\tabularnewline 
+1347 & \verb|keyboard| & b & 4160 & 6707 & 6742 & 285685 & 00:04:45.685 & 285747 & 00:04:45.747 & 62 & 187 & \verb|BEFORE WORDS|
+\tabularnewline 
+1348 & \verb|keyboard| & e & 4161 & 6708 & 6743 & 285825 & 00:04:45.825 & 285888 & 00:04:45.888 & 63 & 140 & \verb|WITHIN WORDS|
+\tabularnewline 
+1349 & \verb|keyboard| & i & 4162 & 6709 & 6744 & 285903 & 00:04:45.903 & 285966 & 00:04:45.966 & 63 & 78 & \verb|WITHIN WORDS|
+\tabularnewline 
+1350 & \verb|keyboard| & d & 4163 & 6710 & 6745 & 286044 & 00:04:46.044 & 286122 & 00:04:46.122 & 78 & 141 & \verb|WITHIN WORDS|
+\tabularnewline 
+1351 & \verb|keyboard| & e & 4164 & 6711 & 6746 & 286231 & 00:04:46.231 & 286278 & 00:04:46.278 & 47 & 187 & \verb|WITHIN WORDS|
+\tabularnewline 
+1352 & \verb|keyboard| & n & 4165 & 6712 & 6747 & 286356 & 00:04:46.356 & 286418 & 00:04:46.418 & 62 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1353 & \verb|keyboard| & SPACE & 4166 & 6713 & 6748 & 286590 & 00:04:46.590 & 286636 & 00:04:46.636 & 46 & 234 & \verb|AFTER WORDS|
+\tabularnewline 
+1368 & \verb|keyboard| & LEFT & 4160 & 6714 & 6749 & 298368 & 00:04:58.368 & 298399 & 00:04:58.399 & 31 & 11778 & \verb|UNKNOWN|
+\tabularnewline 
+1370 & \verb|keyboard| & RIGHT & 4159 & 6714 & 6749 & 298773 & 00:04:58.773 & 298898 & 00:04:58.898 & 125 & 405 & \verb|UNKNOWN|
+\tabularnewline 
+1372 & \verb|keyboard| & RIGHT & 4160 & 6714 & 6749 & 298976 & 00:04:58.976 & 299085 & 00:04:59.085 & 109 & 203 & \verb|UNKNOWN|
+\tabularnewline 
+1374 & \verb|keyboard| & LEFT & 4161 & 6714 & 6749 & 299319 & 00:04:59.319 & 299429 & 00:04:59.429 & 110 & 343 & \verb|UNKNOWN|
+\tabularnewline 
+1376 & \verb|keyboard| & k & 4160 & 6714 & 6749 & 300505 & 00:05:00.505 & 300567 & 00:05:00.567 & 62 & 1186 & \verb|BEFORE WORDS|
+\tabularnewline 
+1377 & \verb|keyboard| & r & 4161 & 6715 & 6750 & 301098 & 00:05:01.098 & 301145 & 00:05:01.145 & 47 & 593 & \verb|WITHIN WORDS|
+\tabularnewline 
+1378 & \verb|keyboard| & i & 4162 & 6716 & 6751 & 301691 & 00:05:01.691 & 301769 & 00:05:01.769 & 78 & 593 & \verb|WITHIN WORDS|
+\tabularnewline 
+1379 & \verb|keyboard| & j & 4163 & 6717 & 6752 & 301800 & 00:05:01.800 & 301878 & 00:05:01.878 & 78 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1380 & \verb|keyboard| & g & 4164 & 6718 & 6753 & 302096 & 00:05:02.096 & 302143 & 00:05:02.143 & 47 & 296 & \verb|WITHIN WORDS|
+\tabularnewline 
+1381 & \verb|keyboard| & t & 4165 & 6719 & 6754 & 302237 & 00:05:02.237 & 302299 & 00:05:02.299 & 62 & 141 & \verb|WITHIN WORDS|
+\tabularnewline 
+1382 & \verb|keyboard| & SPACE & 4166 & 6720 & 6755 & 302455 & 00:05:02.455 & 302502 & 00:05:02.502 & 47 & 218 & \verb|AFTER WORDS|
+\tabularnewline 
+1383 & \verb|keyboard| & h & 4167 & 6721 & 6756 & 302736 & 00:05:02.736 & 302798 & 00:05:02.798 & 62 & 281 & \verb|BEFORE WORDS|
+\tabularnewline 
+1384 & \verb|keyboard| & LEFT & 4168 & 6722 & 6757 & 304483 & 00:05:04.483 & 304545 & 00:05:04.545 & 62 & 1747 & \verb|UNKNOWN|
+\tabularnewline 
+1386 & \verb|keyboard| & LEFT & 4167 & 6722 & 6757 & 304670 & 00:05:04.670 & 304717 & 00:05:04.717 & 47 & 187 & \verb|UNKNOWN|
+\tabularnewline 
+1388 & \verb|keyboard| & LEFT & 4166 & 6722 & 6757 & 304811 & 00:05:04.811 & 304857 & 00:05:04.857 & 46 & 141 & \verb|UNKNOWN|
+\tabularnewline 
+1390 & \verb|keyboard| & LEFT & 4165 & 6722 & 6757 & 304967 & 00:05:04.967 & 305013 & 00:05:05.013 & 46 & 156 & \verb|UNKNOWN|
+\tabularnewline 
+1392 & \verb|keyboard| & LEFT & 4164 & 6722 & 6757 & 305107 & 00:05:05.107 & 305169 & 00:05:05.169 & 62 & 140 & \verb|UNKNOWN|
+\tabularnewline 
+1394 & \verb|keyboard| & LEFT & 4163 & 6722 & 6757 & 305263 & 00:05:05.263 & 305325 & 00:05:05.325 & 62 & 156 & \verb|UNKNOWN|
+\tabularnewline 
+1396 & \verb|keyboard| & LEFT & 4162 & 6722 & 6757 & 305419 & 00:05:05.419 & 305497 & 00:05:05.497 & 78 & 156 & \verb|UNKNOWN|
+\tabularnewline 
+1398 & \verb|keyboard| & LEFT & 4161 & 6722 & 6757 & 305622 & 00:05:05.622 & 305684 & 00:05:05.684 & 62 & 203 & \verb|UNKNOWN|
+\tabularnewline 
+1400 & \verb|keyboard| & k & 4160 & 6722 & 6757 & 306480 & 00:05:06.480 & 306527 & 00:05:06.527 & 47 & 858 & \verb|BEFORE WORDS|
+\tabularnewline 
+1401 & \verb|keyboard| & a & 4161 & 6723 & 6758 & 306558 & 00:05:06.558 & 306651 & 00:05:06.651 & 93 & 78 & \verb|WITHIN WORDS|
+\tabularnewline 
+1402 & \verb|keyboard| & n & 4162 & 6724 & 6759 & 306667 & 00:05:06.667 & 306729 & 00:05:06.729 & 62 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1403 & \verb|keyboard| & SPACE & 4163 & 6725 & 6760 & 306839 & 00:05:06.839 & 306885 & 00:05:06.885 & 46 & 172 & \verb|AFTER WORDS|
+\tabularnewline 
+1404 & \verb|keyboard| & h & 4164 & 6726 & 6761 & 307041 & 00:05:07.041 & 307088 & 00:05:07.088 & 47 & 202 & \verb|BEFORE WORDS|
+\tabularnewline 
+1405 & \verb|keyboard| & i & 4165 & 6727 & 6762 & 307197 & 00:05:07.197 & 307307 & 00:05:07.307 & 110 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1406 & \verb|keyboard| & j & 4166 & 6728 & 6763 & 307291 & 00:05:07.291 & 307369 & 00:05:07.369 & 78 & 94 & \verb|WITHIN WORDS|
+\tabularnewline 
+1407 & \verb|keyboard| & SPACE & 4167 & 6729 & 6764 & 307494 & 00:05:07.494 & 307572 & 00:05:07.572 & 78 & 203 & \verb|AFTER WORDS|
+\tabularnewline 
+1408 & \verb|keyboard| & m & 4168 & 6730 & 6765 & 307650 & 00:05:07.650 & 307712 & 00:05:07.712 & 62 & 156 & \verb|BEFORE WORDS|
+\tabularnewline 
+1409 & \verb|keyboard| & e & 4169 & 6731 & 6766 & 307790 & 00:05:07.790 & 307868 & 00:05:07.868 & 78 & 140 & \verb|WITHIN WORDS|
+\tabularnewline 
+1410 & \verb|keyboard| & e & 4170 & 6732 & 6767 & 307931 & 00:05:07.931 & 308009 & 00:05:08.009 & 78 & 141 & \verb|WITHIN WORDS|
+\tabularnewline 
+1411 & \verb|keyboard| & r & 4171 & 6733 & 6768 & 308009 & 00:05:08.009 & 308055 & 00:05:08.055 & 46 & 78 & \verb|WITHIN WORDS|
+\tabularnewline 
+1412 & \verb|keyboard| & SPACE & 4172 & 6734 & 6769 & 308196 & 00:05:08.196 & 308274 & 00:05:08.274 & 78 & 187 & \verb|AFTER WORDS|
+\tabularnewline 
+1413 & \verb|keyboard| & RIGHT & 4173 & 6735 & 6770 & 309849 & 00:05:09.849 & 309912 & 00:05:09.912 & 63 & 1653 & \verb|UNKNOWN|
+\tabularnewline 
+1415 & \verb|keyboard| & RIGHT & 4174 & 6735 & 6770 & 310037 & 00:05:10.037 & 310068 & 00:05:10.068 & 31 & 188 & \verb|UNKNOWN|
+\tabularnewline 
+1417 & \verb|keyboard| & RIGHT & 4175 & 6735 & 6770 & 310161 & 00:05:10.161 & 310271 & 00:05:10.271 & 110 & 124 & \verb|UNKNOWN|
+\tabularnewline 
+1419 & \verb|keyboard| & RIGHT & 4176 & 6735 & 6770 & 310349 & 00:05:10.349 & 310458 & 00:05:10.458 & 109 & 188 & \verb|UNKNOWN|
+\tabularnewline 
+1421 & \verb|keyboard| & RIGHT & 4177 & 6735 & 6770 & 310707 & 00:05:10.707 & 310785 & 00:05:10.785 & 78 & 358 & \verb|UNKNOWN|
+\tabularnewline 
+1423 & \verb|keyboard| & e & 4178 & 6735 & 6770 & 311409 & 00:05:11.409 & 311487 & 00:05:11.487 & 78 & 702 & \verb|BEFORE WORDS|
+\tabularnewline 
+1424 & \verb|keyboard| & n & 4179 & 6736 & 6771 & 311550 & 00:05:11.550 & 311597 & 00:05:11.597 & 47 & 141 & \verb|WITHIN WORDS|
+\tabularnewline 
+1425 & \verb|keyboard| & SPACE & 4180 & 6737 & 6772 & 311706 & 00:05:11.706 & 311784 & 00:05:11.784 & 78 & 156 & \verb|AFTER WORDS|
+\tabularnewline 
+1426 & \verb|keyboard| & d & 4181 & 6738 & 6773 & 311831 & 00:05:11.831 & 311909 & 00:05:11.909 & 78 & 125 & \verb|BEFORE WORDS|
+\tabularnewline 
+1427 & \verb|keyboard| & a & 4182 & 6739 & 6774 & 311987 & 00:05:11.987 & 312065 & 00:05:12.065 & 78 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1428 & \verb|keyboard| & n & 4183 & 6740 & 6775 & 312096 & 00:05:12.096 & 312143 & 00:05:12.143 & 47 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1429 & \verb|keyboard| & SPACE & 4184 & 6741 & 6776 & 312252 & 00:05:12.252 & 312330 & 00:05:12.330 & 78 & 156 & \verb|AFTER WORDS|
+\tabularnewline 
+1430 & \verb|keyboard| & w & 4185 & 6742 & 6777 & 312392 & 00:05:12.392 & 312486 & 00:05:12.486 & 94 & 140 & \verb|BEFORE WORDS|
+\tabularnewline 
+1431 & \verb|keyboard| & a & 4186 & 6743 & 6778 & 312548 & 00:05:12.548 & 312626 & 00:05:12.626 & 78 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1432 & \verb|keyboard| & t & 4187 & 6744 & 6779 & 312626 & 00:05:12.626 & 312689 & 00:05:12.689 & 63 & 78 & \verb|WITHIN WORDS|
+\tabularnewline 
+1433 & \verb|keyboard| & SPACE & 4188 & 6745 & 6780 & 312829 & 00:05:12.829 & 312907 & 00:05:12.907 & 78 & 203 & \verb|AFTER WORDS|
+\tabularnewline 
+1434 & \verb|keyboard| & h & 4189 & 6746 & 6781 & 313188 & 00:05:13.188 & 313250 & 00:05:13.250 & 62 & 359 & \verb|BEFORE WORDS|
+\tabularnewline 
+1435 & \verb|keyboard| & i & 4190 & 6747 & 6782 & 313359 & 00:05:13.359 & 313469 & 00:05:13.469 & 110 & 171 & \verb|WITHIN WORDS|
+\tabularnewline 
+1436 & \verb|keyboard| & j & 4191 & 6748 & 6783 & 313453 & 00:05:13.453 & 313547 & 00:05:13.547 & 94 & 94 & \verb|WITHIN WORDS|
+\tabularnewline 
+1437 & \verb|keyboard| & SPACE & 4192 & 6749 & 6784 & 313687 & 00:05:13.687 & 313765 & 00:05:13.765 & 78 & 234 & \verb|AFTER WORDS|
+\tabularnewline 
+1438 & \verb|keyboard| & v & 4193 & 6750 & 6785 & 313812 & 00:05:13.812 & 313890 & 00:05:13.890 & 78 & 125 & \verb|BEFORE WORDS|
+\tabularnewline 
+1439 & \verb|keyboard| & o & 4194 & 6751 & 6786 & 313921 & 00:05:13.921 & 313968 & 00:05:13.968 & 47 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1440 & \verb|keyboard| & o & 4195 & 6752 & 6787 & 314046 & 00:05:14.046 & 314108 & 00:05:14.108 & 62 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1441 & \verb|keyboard| & r & 4196 & 6753 & 6788 & 314155 & 00:05:14.155 & 314217 & 00:05:14.217 & 62 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1442 & \verb|keyboard| & SPACE & 4197 & 6754 & 6789 & 314264 & 00:05:14.264 & 314358 & 00:05:14.358 & 94 & 109 & \verb|AFTER WORDS|
+\tabularnewline 
+1443 & \verb|keyboard| & z & 4198 & 6755 & 6790 & 314451 & 00:05:14.451 & 314529 & 00:05:14.529 & 78 & 187 & \verb|BEFORE WORDS|
+\tabularnewline 
+1444 & \verb|keyboard| & o & 4199 & 6756 & 6791 & 314592 & 00:05:14.592 & 314654 & 00:05:14.654 & 62 & 141 & \verb|WITHIN WORDS|
+\tabularnewline 
+1445 & \verb|keyboard| & n & 4200 & 6757 & 6792 & 314810 & 00:05:14.810 & 314857 & 00:05:14.857 & 47 & 218 & \verb|WITHIN WORDS|
+\tabularnewline 
+1446 & \verb|keyboard| & ' & 4201 & 6758 & 6793 & 314919 & 00:05:14.919 & 314966 & 00:05:14.966 & 47 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1447 & \verb|keyboard| & SPACE & 4202 & 6759 & 6794 & 315075 & 00:05:15.075 & 315138 & 00:05:15.138 & 63 & 156 & \verb|AFTER WORDS|
+\tabularnewline 
+1448 & \verb|keyboard| & k & 4203 & 6760 & 6795 & 315543 & 00:05:15.543 & 315606 & 00:05:15.606 & 63 & 468 & \verb|BEFORE WORDS|
+\tabularnewline 
+1449 & \verb|keyboard| & u & 4204 & 6761 & 6796 & 315746 & 00:05:15.746 & 315793 & 00:05:15.793 & 47 & 203 & \verb|WITHIN WORDS|
+\tabularnewline 
+1450 & \verb|keyboard| & n & 4205 & 6762 & 6797 & 315918 & 00:05:15.918 & 315980 & 00:05:15.980 & 62 & 172 & \verb|WITHIN WORDS|
+\tabularnewline 
+1451 & \verb|keyboard| & s & 4206 & 6763 & 6798 & 316027 & 00:05:16.027 & 316105 & 00:05:16.105 & 78 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1452 & \verb|keyboard| & t & 4207 & 6764 & 6799 & 316152 & 00:05:16.152 & 316183 & 00:05:16.183 & 31 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1453 & \verb|keyboard| & w & 4208 & 6765 & 6800 & 316277 & 00:05:16.277 & 316355 & 00:05:16.355 & 78 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1454 & \verb|keyboard| & e & 4209 & 6766 & 6801 & 316526 & 00:05:16.526 & 316620 & 00:05:16.620 & 94 & 249 & \verb|WITHIN WORDS|
+\tabularnewline 
+1455 & \verb|keyboard| & r & 4210 & 6767 & 6802 & 316589 & 00:05:16.589 & 316667 & 00:05:16.667 & 78 & 63 & \verb|WITHIN WORDS|
+\tabularnewline 
+1456 & \verb|keyboard| & k & 4211 & 6768 & 6803 & 316760 & 00:05:16.760 & 316823 & 00:05:16.823 & 63 & 171 & \verb|WITHIN WORDS|
+\tabularnewline 
+1457 & \verb|keyboard| & j & 4212 & 6769 & 6804 & 316916 & 00:05:16.916 & 316963 & 00:05:16.963 & 47 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1458 & \verb|keyboard| & e & 4213 & 6770 & 6805 & 317025 & 00:05:17.025 & 317088 & 00:05:17.088 & 63 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1459 & \verb|keyboard| & SPACE & 4214 & 6771 & 6806 & 317150 & 00:05:17.150 & 317213 & 00:05:17.213 & 63 & 125 & \verb|AFTER WORDS|
+\tabularnewline 
+1460 & \verb|keyboard| & v & 4215 & 6772 & 6807 & 317369 & 00:05:17.369 & 317415 & 00:05:17.415 & 46 & 219 & \verb|BEFORE WORDS|
+\tabularnewline 
+1461 & \verb|keyboard| & r & 4216 & 6773 & 6808 & 317540 & 00:05:17.540 & 317587 & 00:05:17.587 & 47 & 171 & \verb|WITHIN WORDS|
+\tabularnewline 
+1462 & \verb|keyboard| & a & 4217 & 6774 & 6809 & 317634 & 00:05:17.634 & 317696 & 00:05:17.696 & 62 & 94 & \verb|WITHIN WORDS|
+\tabularnewline 
+1463 & \verb|keyboard| & a & 4218 & 6775 & 6810 & 317790 & 00:05:17.790 & 317868 & 00:05:17.868 & 78 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1464 & \verb|keyboard| & g & 4219 & 6776 & 6811 & 317961 & 00:05:17.961 & 318008 & 00:05:18.008 & 47 & 171 & \verb|WITHIN WORDS|
+\tabularnewline 
+1465 & \verb|keyboard| & t & 4220 & 6777 & 6812 & 318180 & 00:05:18.180 & 318211 & 00:05:18.211 & 31 & 219 & \verb|WITHIN WORDS|
+\tabularnewline 
+1504 & \verb|keyboard| & LEFT & 4202 & 6778 & 6813 & 321581 & 00:05:21.581 & 321596 & 00:05:21.596 & 15 & 3401 & \verb|UNKNOWN|
+\tabularnewline 
+1506 & \verb|keyboard| & LEFT & 4201 & 6778 & 6813 & 321908 & 00:05:21.908 & 321986 & 00:05:21.986 & 78 & 327 & \verb|UNKNOWN|
+\tabularnewline 
+1508 & \verb|keyboard| & DELETE & 4200 & 6777 & 6813 & 322298 & 00:05:22.298 & 322329 & 00:05:22.329 & 31 & 390 & \verb|REVISION|
+\tabularnewline 
+1509 & \verb|replacement| & [4200:4201] & 4200 & 6777 & 6813 & 322298 & 00:05:22.298 & 322329 & 00:05:22.329 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1511 & \verb|keyboard| & RIGHT & 4200 & 6777 & 6813 & 322517 & 00:05:22.517 & 322595 & 00:05:22.595 & 78 & 219 & \verb|UNKNOWN|
+\tabularnewline 
+1513 & \verb|keyboard| & n & 4201 & 6777 & 6813 & 323546 & 00:05:23.546 & 323609 & 00:05:23.609 & 63 & 1029 & \verb|BEFORE WORDS|
+\tabularnewline 
+1546 & \verb|keyboard| & RIGHT & 4218 & 6778 & 6814 & 324903 & 00:05:24.903 & 324935 & 00:05:24.935 & 32 & 1357 & \verb|UNKNOWN|
+\tabularnewline 
+1548 & \verb|keyboard| & RIGHT & 4219 & 6778 & 6814 & 325231 & 00:05:25.231 & 325309 & 00:05:25.309 & 78 & 328 & \verb|UNKNOWN|
+\tabularnewline 
+1550 & \verb|keyboard| & RIGHT & 4220 & 6778 & 6814 & 325481 & 00:05:25.481 & 325496 & 00:05:25.496 & 15 & 250 & \verb|UNKNOWN|
+\tabularnewline 
+1552 & \verb|keyboard| & DELETE & 4221 & 6777 & 6814 & 325949 & 00:05:25.949 & 325995 & 00:05:25.995 & 46 & 468 & \verb|REVISION|
+\tabularnewline 
+1553 & \verb|replacement| & [4221:4222] & 4221 & 6777 & 6814 & 325949 & 00:05:25.949 & 325995 & 00:05:25.995 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1555 & \verb|keyboard| & SPACE & 4221 & 6777 & 6814 & 326448 & 00:05:26.448 & 326541 & 00:05:26.541 & 93 & 499 & \verb|AFTER WORDS|
+\tabularnewline 
+1556 & \verb|keyboard| & DELETE & 4222 & 6777 & 6815 & 326838 & 00:05:26.838 & 326916 & 00:05:26.916 & 78 & 390 & \verb|REVISION|
+\tabularnewline 
+1557 & \verb|replacement| & [4222:4223] & 4222 & 6777 & 6815 & 326838 & 00:05:26.838 & 326916 & 00:05:26.916 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1559 & \verb|keyboard| & DELETE & 4222 & 6776 & 6815 & 327041 & 00:05:27.041 & 327103 & 00:05:27.103 & 62 & 203 & \verb|REVISION|
+\tabularnewline 
+1560 & \verb|replacement| & [4222:4223] & 4222 & 6776 & 6815 & 327041 & 00:05:27.041 & 327103 & 00:05:27.103 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1562 & \verb|keyboard| & DELETE & 4222 & 6775 & 6815 & 327181 & 00:05:27.181 & 327181 & 00:05:27.181 & 0 & 140 & \verb|REVISION|
+\tabularnewline 
+1563 & \verb|replacement| & [4222:4223] & 4222 & 6775 & 6815 & 327181 & 00:05:27.181 & 327181 & 00:05:27.181 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1565 & \verb|keyboard| & DELETE & 4222 & 6774 & 6815 & 327696 & 00:05:27.696 & 327696 & 00:05:27.696 & 0 & 515 & \verb|REVISION|
+\tabularnewline 
+1566 & \verb|replacement| & [4222:4223] & 4222 & 6774 & 6815 & 327696 & 00:05:27.696 & 327696 & 00:05:27.696 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1568 & \verb|keyboard| & DELETE & 4222 & 6773 & 6815 & 327727 & 00:05:27.727 & 327727 & 00:05:27.727 & 0 & 31 & \verb|REVISION|
+\tabularnewline 
+1569 & \verb|replacement| & [4222:4223] & 4222 & 6773 & 6815 & 327727 & 00:05:27.727 & 327727 & 00:05:27.727 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1571 & \verb|keyboard| & DELETE & 4222 & 6772 & 6815 & 327758 & 00:05:27.758 & 327758 & 00:05:27.758 & 0 & 31 & \verb|REVISION|
+\tabularnewline 
+1572 & \verb|replacement| & [4222:4223] & 4222 & 6772 & 6815 & 327758 & 00:05:27.758 & 327758 & 00:05:27.758 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1574 & \verb|keyboard| & DELETE & 4222 & 6771 & 6815 & 327789 & 00:05:27.789 & 327789 & 00:05:27.789 & 0 & 31 & \verb|REVISION|
+\tabularnewline 
+1575 & \verb|replacement| & [4222:4223] & 4222 & 6771 & 6815 & 327789 & 00:05:27.789 & 327789 & 00:05:27.789 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1577 & \verb|keyboard| & DELETE & 4222 & 6770 & 6815 & 327836 & 00:05:27.836 & 327836 & 00:05:27.836 & 0 & 47 & \verb|REVISION|
+\tabularnewline 
+1578 & \verb|replacement| & [4222:4223] & 4222 & 6770 & 6815 & 327836 & 00:05:27.836 & 327836 & 00:05:27.836 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1580 & \verb|keyboard| & DELETE & 4222 & 6769 & 6815 & 327867 & 00:05:27.867 & 327899 & 00:05:27.899 & 32 & 31 & \verb|REVISION|
+\tabularnewline 
+1581 & \verb|replacement| & [4222:4223] & 4222 & 6769 & 6815 & 327867 & 00:05:27.867 & 327899 & 00:05:27.899 & 0 & 0 & \verb|CHANGE|
+\tabularnewline 
+1583 & \verb|keyboard| & RETURN & 4222 & 6769 & 6815 & 328476 & 00:05:28.476 & 328569 & 00:05:28.569 & 93 & 609 & \verb|BEFORE PARAGRAPHS|
+\tabularnewline 
+1584 & \verb|keyboard| & RETURN & 4223 & 6770 & 6816 & 328647 & 00:05:28.647 & 328710 & 00:05:28.710 & 63 & 171 & \verb|BEFORE WORDS|
+\tabularnewline 
+1585 & \verb|keyboard| & LEFT & 4224 & 6771 & 6817 & 329147 & 00:05:29.147 & 329240 & 00:05:29.240 & 93 & 500 & \verb|UNKNOWN|
+\tabularnewline 
+1587 & \verb|keyboard| & LEFT & 4223 & 6771 & 6817 & 329334 & 00:05:29.334 & 329396 & 00:05:29.396 & 62 & 187 & \verb|UNKNOWN|
+\tabularnewline 
+1589 & \verb|keyboard| & LEFT & 4222 & 6771 & 6817 & 329490 & 00:05:29.490 & 329584 & 00:05:29.584 & 94 & 156 & \verb|UNKNOWN|
+\tabularnewline 
+1591 & \verb|keyboard| & LEFT & 4221 & 6771 & 6817 & 329693 & 00:05:29.693 & 329771 & 00:05:29.771 & 78 & 203 & \verb|UNKNOWN|
+\tabularnewline 
+1593 & \verb|keyboard| & RIGHT & 4220 & 6771 & 6817 & 330020 & 00:05:30.020 & 330130 & 00:05:30.130 & 110 & 327 & \verb|UNKNOWN|
+\tabularnewline 
+1595 & \verb|keyboard| & , & 4221 & 6771 & 6817 & 330847 & 00:05:30.847 & 330894 & 00:05:30.894 & 47 & 827 & \verb|AFTER WORDS|
+\tabularnewline 
+1596 & \verb|keyboard| & SPACE & 4222 & 6772 & 6818 & 330988 & 00:05:30.988 & 331050 & 00:05:31.050 & 62 & 141 & \verb|AFTER WORDS|
+\tabularnewline 
+1597 & \verb|keyboard| & m & 4223 & 6773 & 6819 & 331175 & 00:05:31.175 & 331237 & 00:05:31.237 & 62 & 187 & \verb|BEFORE WORDS|
+\tabularnewline 
+1598 & \verb|keyboard| & a & 4224 & 6774 & 6820 & 331206 & 00:05:31.206 & 331284 & 00:05:31.284 & 78 & 31 & \verb|WITHIN WORDS|
+\tabularnewline 
+1599 & \verb|keyboard| & a & 4225 & 6775 & 6821 & 331362 & 00:05:31.362 & 331456 & 00:05:31.456 & 94 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1600 & \verb|keyboard| & r & 4226 & 6776 & 6822 & 331518 & 00:05:31.518 & 331565 & 00:05:31.565 & 47 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1601 & \verb|keyboard| & SPACE & 4227 & 6777 & 6823 & 331736 & 00:05:31.736 & 331799 & 00:05:31.799 & 63 & 218 & \verb|AFTER WORDS|
+\tabularnewline 
+1602 & \verb|keyboard| & d & 4228 & 6778 & 6824 & 331830 & 00:05:31.830 & 331892 & 00:05:31.892 & 62 & 94 & \verb|BEFORE WORDS|
+\tabularnewline 
+1603 & \verb|keyboard| & a & 4229 & 6779 & 6825 & 331986 & 00:05:31.986 & 332064 & 00:05:32.064 & 78 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1604 & \verb|keyboard| & t & 4230 & 6780 & 6826 & 332111 & 00:05:32.111 & 332142 & 00:05:32.142 & 31 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1605 & \verb|keyboard| & SPACE & 4231 & 6781 & 6827 & 332282 & 00:05:32.282 & 332345 & 00:05:32.345 & 63 & 171 & \verb|AFTER WORDS|
+\tabularnewline 
+1606 & \verb|keyboard| & i & 4232 & 6782 & 6828 & 332579 & 00:05:32.579 & 332626 & 00:05:32.626 & 47 & 297 & \verb|BEFORE WORDS|
+\tabularnewline 
+1607 & \verb|keyboard| & l & 4233 & 6783 & 6829 & 332688 & 00:05:32.688 & 332766 & 00:05:32.766 & 78 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1608 & \verb|keyboard| & SPACE & 4234 & 6784 & 6830 & 332906 & 00:05:32.906 & 332938 & 00:05:32.938 & 32 & 218 & \verb|AFTER WORDS|
+\tabularnewline 
+1609 & \verb|keyboard| & h & 4235 & 6785 & 6831 & 333203 & 00:05:33.203 & 333250 & 00:05:33.250 & 47 & 297 & \verb|BEFORE WORDS|
+\tabularnewline 
+1610 & \verb|keyboard| & i & 4236 & 6786 & 6832 & 333374 & 00:05:33.374 & 333515 & 00:05:33.515 & 141 & 171 & \verb|WITHIN WORDS|
+\tabularnewline 
+1611 & \verb|keyboard| & j & 4237 & 6787 & 6833 & 333484 & 00:05:33.484 & 333577 & 00:05:33.577 & 93 & 110 & \verb|WITHIN WORDS|
+\tabularnewline 
+1612 & \verb|keyboard| & SPACE & 4238 & 6788 & 6834 & 333702 & 00:05:33.702 & 333749 & 00:05:33.749 & 47 & 218 & \verb|AFTER WORDS|
+\tabularnewline 
+1613 & \verb|keyboard| & n & 4239 & 6789 & 6835 & 333889 & 00:05:33.889 & 333952 & 00:05:33.952 & 63 & 187 & \verb|BEFORE WORDS|
+\tabularnewline 
+1614 & \verb|keyboard| & i & 4240 & 6790 & 6836 & 333998 & 00:05:33.998 & 334076 & 00:05:34.076 & 78 & 109 & \verb|WITHIN WORDS|
+\tabularnewline 
+1615 & \verb|keyboard| & e & 4241 & 6791 & 6837 & 334123 & 00:05:34.123 & 334186 & 00:05:34.186 & 63 & 125 & \verb|WITHIN WORDS|
+\tabularnewline 
+1616 & \verb|keyboard| & t & 4242 & 6792 & 6838 & 334279 & 00:05:34.279 & 334342 & 00:05:34.342 & 63 & 156 & \verb|WITHIN WORDS|
+\tabularnewline 
+1637 & \verb|keyboard| & LEFT & 4233 & 6793 & 6839 & 336775 & 00:05:36.775 & 336791 & 00:05:36.791 & 16 & 2496 & \verb|UNKNOWN|
+\tabularnewline 
+1639 & \verb|keyboard| & LEFT & 4232 & 6793 & 6839 & 337025 & 00:05:37.025 & 337087 & 00:05:37.087 & 62 & 250 & \verb|UNKNOWN|
+\tabularnewline 
+1641 & \verb|keyboard| & RIGHT & 4231 & 6793 & 6839 & 337399 & 00:05:37.399 & 337508 & 00:05:37.508 & 109 & 374 & \verb|UNKNOWN|
+\tabularnewline 
+1643 & \verb|keyboard| & w & 4232 & 6793 & 6839 & 338351 & 00:05:38.351 & 338413 & 00:05:38.413 & 62 & 952 & \verb|BEFORE WORDS|
+\tabularnewline 
+1644 & \verb|keyboard| & RIGHT & 4233 & 6794 & 6840 & 341580 & 00:05:41.580 & 341658 & 00:05:41.658 & 78 & 3229 & \verb|UNKNOWN|
+\tabularnewline 
+1646 & \verb|keyboard| & RIGHT & 4234 & 6794 & 6840 & 341767 & 00:05:41.767 & 341767 & 00:05:41.767 & 0 & 187 & \verb|UNKNOWN|
+\tabularnewline 
+1648 & \verb|keyboard| & RIGHT & 4235 & 6794 & 6840 & 342266 & 00:05:42.266 & 342266 & 00:05:42.266 & 0 & 499 & \verb|UNKNOWN|
+\tabularnewline 
+1650 & \verb|keyboard| & RIGHT & 4236 & 6794 & 6840 & 342298 & 00:05:42.298 & 342298 & 00:05:42.298 & 0 & 32 & \verb|UNKNOWN|
+\tabularnewline 
+1652 & \verb|keyboard| & RIGHT & 4237 & 6794 & 6840 & 342344 & 00:05:42.344 & 342344 & 00:05:42.344 & 0 & 46 & \verb|UNKNOWN|
+\tabularnewline 
+1654 & \verb|keyboard| & RIGHT & 4238 & 6794 & 6840 & 342376 & 00:05:42.376 & 342376 & 00:05:42.376 & 0 & 32 & \verb|UNKNOWN|
+\tabularnewline 
+1656 & \verb|keyboard| & RIGHT & 4239 & 6794 & 6840 & 342407 & 00:05:42.407 & 342407 & 00:05:42.407 & 0 & 31 & \verb|UNKNOWN|
+\tabularnewline 
+1658 & \verb|keyboard| & RIGHT & 4240 & 6794 & 6840 & 342438 & 00:05:42.438 & 342438 & 00:05:42.438 & 0 & 31 & \verb|UNKNOWN|
+\tabularnewline 
+1660 & \verb|keyboard| & RIGHT & 4241 & 6794 & 6840 & 342485 & 00:05:42.485 & 342485 & 00:05:42.485 & 0 & 47 & \verb|UNKNOWN|
+\tabularnewline 
+1662 & \verb|keyboard| & RIGHT & 4242 & 6794 & 6840 & 342516 & 00:05:42.516 & 342547 & 00:05:42.547 & 31 & 31 & \verb|UNKNOWN|
+\tabularnewline 
+1664 & \verb|keyboard| & RIGHT & 4243 & 6794 & 6840 & 343000 & 00:05:43 & 343109 & 00:05:43.109 & 109 & 484 & \verb|UNKNOWN|
+\tabularnewline 
+1666 & \verb|keyboard| & . & 4244 & 6794 & 6840 & 344216 & 00:05:44.216 & 344279 & 00:05:44.279 & 63 & 1216 & \verb|AFTER WORDS|
+
+\end{longtable}
+\end{center}
+\end{subappendices}
+
+\begin{flushleft}
+\bibliography{references/bekius}
+\end{flushleft}
+\end{paper}
