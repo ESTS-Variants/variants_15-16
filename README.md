@@ -1,6 +1,6 @@
 [![Static Badge](https://img.shields.io/badge/doi-10.4000%2Fvariants.1194-blue)](https://doi.org/10.4000/variants.1194)
 
-# Variants 17-18 | the repository
+# Variants 15-16 | the repository
 
 This repository contains the LaTeX version of [Variants 15-16](https://journals.openedition.org/variants/1194), an issue of [_Variants, the Journal of the European Society for Textual Scholarship_](https://journals.openedition.org/variants/), published in July 2021.
 This version is purely regarded as a backup, a showcase of how _Variants_ issues are designed in LaTeX, and as a point of reference for formatting rules and special cases mentioned in the [varianTeX wiki](https://github.com/ESTS-Variants/varianTeX/wiki).
